@@ -15,16 +15,16 @@ module.exports = defineConfig({
   },
   modules: {
     company: {
-      resolve: "./modules/company",
+      resolve: "./src/modules/company",
     },
     quote: {
-      resolve: "./modules/quote",
+      resolve: "./src/modules/quote",
     },
     approval: {
-      resolve: "./modules/approval",
+      resolve: "./src/modules/approval",
     },
     loyalty: {
-      resolve: "./modules/loyalty",
+      resolve: "./src/modules/loyalty",
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",

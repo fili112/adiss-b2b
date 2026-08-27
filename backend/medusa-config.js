@@ -1,6 +1,3 @@
-const { QUOTE_MODULE } = require("./src/modules/quote");
-const { APPROVAL_MODULE } = require("./src/modules/approval");
-const { COMPANY_MODULE } = require("./src/modules/company");
 const { loadEnv, defineConfig, Modules } = require("@medusajs/framework/utils");
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
@@ -9,21 +6,21 @@ module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
-      storeCors: process.env.STORE_CORS!,
-      adminCors: process.env.ADMIN_CORS!,
-      authCors: process.env.AUTH_CORS!,
+      storeCors: process.env.STORE_CORS,
+      adminCors: process.env.ADMIN_CORS,
+      authCors: process.env.AUTH_CORS,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
   modules: {
-    [COMPANY_MODULE]: {
+    company: {
       resolve: "./modules/company",
     },
-    [QUOTE_MODULE]: {
+    quote: {
       resolve: "./modules/quote",
     },
-    [APPROVAL_MODULE]: {
+    approval: {
       resolve: "./modules/approval",
     },
     loyalty: {

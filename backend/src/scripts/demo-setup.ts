@@ -47,6 +47,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "1000",
     country: "Ethiopia",
     currency_code: "ETB",
+    logo_url: null,
     spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 
@@ -90,6 +91,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "1100",
     country: "Ethiopia",
     currency_code: "ETB",
+    logo_url: null,
     spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.WEEKLY,
   });
 
@@ -119,6 +121,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "2000",
     country: "Ethiopia",
     currency_code: "ETB",
+    logo_url: null,
     spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 
@@ -148,6 +151,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "3000",
     country: "Ethiopia",
     currency_code: "ETB",
+    logo_url: null,
     spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 

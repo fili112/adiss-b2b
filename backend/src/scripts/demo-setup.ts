@@ -16,7 +16,7 @@ import {
   ModuleRegistrationName,
 } from "@medusajs/framework/utils";
 import { COMPANY_MODULE } from "../modules/company";
-import { ICompanyModuleService } from "../types";
+import { ICompanyModuleService, ModuleCompanySpendingLimitResetFrequency } from "../types";
 
 export default async function setupDemo({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
@@ -47,7 +47,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "1000",
     country: "Ethiopia",
     currency_code: "ETB",
-    spending_limit_reset_frequency: "monthly",
+    spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 
   await companyModuleService.createEmployees({
@@ -90,7 +90,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "1100",
     country: "Ethiopia",
     currency_code: "ETB",
-    spending_limit_reset_frequency: "weekly",
+    spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.WEEKLY,
   });
 
   await companyModuleService.createEmployees({
@@ -119,7 +119,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "2000",
     country: "Ethiopia",
     currency_code: "ETB",
-    spending_limit_reset_frequency: "monthly",
+    spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 
   await companyModuleService.createEmployees({
@@ -148,7 +148,7 @@ export default async function setupDemo({ container }: ExecArgs) {
     zip: "3000",
     country: "Ethiopia",
     currency_code: "ETB",
-    spending_limit_reset_frequency: "monthly",
+    spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency.MONTHLY,
   });
 
   await companyModuleService.createEmployees({

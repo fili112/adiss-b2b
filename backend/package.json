@@ -13,7 +13,7 @@
     "medusa"
   ],
   "scripts": {
-    "build": "medusa build",
+    "build": "medusa build && node -e \"require('fs').copyFileSync('medusa-config.js', '.medusa/server/medusa-config.js')\"",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "fix-shipping": "medusa exec ./src/scripts/fix-shipping.ts",
     "demo-setup": "medusa exec ./src/scripts/demo-setup.ts",

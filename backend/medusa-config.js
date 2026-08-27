@@ -1,11 +1,11 @@
-import { QUOTE_MODULE } from "./src/modules/quote";
-import { APPROVAL_MODULE } from "./src/modules/approval";
-import { COMPANY_MODULE } from "./src/modules/company";
-import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
+const { QUOTE_MODULE } = require("./src/modules/quote");
+const { APPROVAL_MODULE } = require("./src/modules/approval");
+const { COMPANY_MODULE } = require("./src/modules/company");
+const { loadEnv, defineConfig, Modules } = require("@medusajs/framework/utils");
 
-loadEnv(process.env.NODE_ENV!, process.cwd());
+loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
-export default defineConfig({
+module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {

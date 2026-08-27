@@ -16,14 +16,14 @@ import {
   ModuleRegistrationName,
 } from "@medusajs/framework/utils";
 import { COMPANY_MODULE } from "../modules/company";
-import CompanyModuleService from "../modules/company/service";
+import { ICompanyModuleService } from "../types";
 
 export default async function setupDemo({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const customerModuleService: ICustomerModuleService = container.resolve(
     ModuleRegistrationName.CUSTOMER
   );
-  const companyModuleService = container.resolve<InstanceType<typeof CompanyModuleService>>(COMPANY_MODULE);
+  const companyModuleService = container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
   logger.info("🇪🇹 Setting up Ethiopia B2B Demo Data...");
 

@@ -8,6 +8,7 @@ import LogoIcon from "@/modules/common/icons/logo"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
+import SearchBar from "@/modules/layout/components/search-bar"
 import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
@@ -23,13 +24,22 @@ export async function NavigationHeader() {
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
-              className="hover:text-ui-fg-base flex items-center w-fit"
+              className="hover:text-ui-fg-base flex items-center w-fit gap-2"
               href="/"
             >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
-              </h1>
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                  AB
+                </span>
+                <div className="flex flex-col">
+                  <span className="small:text-base text-sm font-bold text-neutral-900 leading-tight">
+                    Addis B2B
+                  </span>
+                  <span className="text-[10px] text-neutral-500 font-medium uppercase tracking-wider">
+                    Wholesale Ethiopia
+                  </span>
+                </div>
+              </div>
             </LocalizedClientLink>
 
             <nav>
@@ -43,15 +53,7 @@ export async function NavigationHeader() {
             </nav>
           </div>
           <div className="flex justify-end items-center gap-2">
-            <div className="relative mr-2 hidden small:inline-flex">
-              <input
-                disabled
-                type="text"
-                placeholder="Search for products"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
-                title="Install a search provider to enable product search"
-              />
-            </div>
+            <SearchBar />
 
             <div className="h-4 w-px bg-neutral-300" />
 

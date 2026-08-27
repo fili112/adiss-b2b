@@ -156,7 +156,7 @@ const CartDrawer = ({
           )}
           {promotions.length > 0 && (
             <div className="p-4">
-              <AppliedPromotions promotions={promotions} />
+              <AppliedPromotions promotions={promotions as any} />
             </div>
           )}
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between overflow-auto">

@@ -19,11 +19,11 @@ export const retrieveOrder = async (id: string) => {
       method: "GET",
       query: {
         fields:
-          "*payment_collections.payments,*items,+items.metadata,*items.variant,*items.product",
+          "*payment_collections.payments,*items,+items.metadata,*items.variant,*items.product,*shipping_address,*billing_address",
       },
       headers,
       next,
-      cache: "force-cache",
+      cache: "no-store",
     })
     .then(({ order }) => order)
     .catch((err) => medusaError(err))
@@ -36,6 +36,10 @@ export const listOrders = async (
 ) => {
   const headers = {
     ...(await getAuthHeaders()),
+  }
+
+  if (!headers || !("authorization" in headers)) {
+    return []
   }
 
   const next = {
@@ -55,8 +59,8 @@ export const listOrders = async (
       },
       headers,
       next,
-      cache: "force-cache",
+      cache: "no-store",
     })
     .then(({ orders }) => orders)
-    .catch((err) => medusaError(err))
+    .catch(() => [])
 }

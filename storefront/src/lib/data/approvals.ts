@@ -36,13 +36,16 @@ export const listApprovals = async ({
     ...(await getAuthHeaders()),
   }
 
+  if (!headers || !("authorization" in headers)) {
+    return { count: 0, limit, offset, carts_with_approvals: [] }
+  }
+
   const next = {
     ...(await getCacheOptions("approvals")),
   }
 
-  const result = await sdk.client.fetch<StoreApprovalsResponse>(
-    `/store/approvals`,
-    {
+  return await sdk.client
+    .fetch<StoreApprovalsResponse>(`/store/approvals`, {
       query: {
         status,
         type,
@@ -55,10 +58,13 @@ export const listApprovals = async ({
       next,
       credentials: "include",
       cache: "force-cache",
-    }
-  )
-
-  return result
+    })
+    .catch(() => ({
+      count: 0,
+      limit,
+      offset,
+      carts_with_approvals: [],
+    }))
 }
 
 export const retrieveApproval = async (approvalId: string) => {}

@@ -11,16 +11,14 @@ type ConvertToLocaleParams = {
 export const convertToLocale = ({
   amount,
   currency_code,
-  minimumFractionDigits,
+  minimumFractionDigits = 2,
   maximumFractionDigits,
-  locale = "en-US",
+  locale = "en-ET",
 }: ConvertToLocaleParams) => {
-  return currency_code && !isEmpty(currency_code)
-    ? new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency: currency_code,
-        minimumFractionDigits,
-        maximumFractionDigits,
-      }).format(amount)
-    : amount.toString()
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "ETB", // Force ETB regardless of input
+    minimumFractionDigits,
+    maximumFractionDigits,
+  }).format(amount)
 }

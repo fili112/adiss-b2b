@@ -31,8 +31,24 @@ export const paymentInfoMap: Record<
     icon: <PayPal />,
   },
   pp_system_default: {
-    title: "Pay by invoice",
+    title: "Bank Wire / Corporate Invoice (Net 30)",
     icon: <FilePlus />,
+  },
+  pp_telebirr_telebirr: {
+    title: "Telebirr (Mobile Money)",
+    icon: <CreditCard />,
+  },
+  telebirr: {
+    title: "Telebirr (Mobile Money)",
+    icon: <CreditCard />,
+  },
+  pp_cbe_cbe: {
+    title: "CBE Birr / CBE Bank Transfer",
+    icon: <CreditCard />,
+  },
+  cbe: {
+    title: "CBE Birr / CBE Bank Transfer",
+    icon: <CreditCard />,
   },
   // Add more payment providers here
 }
@@ -48,10 +64,16 @@ export const isPaypal = (providerId?: string) => {
   return providerId?.startsWith("pp_paypal")
 }
 export const isManual = (providerId?: string) => {
-  return providerId?.startsWith("pp_system_default")
+  return (
+    providerId?.startsWith("pp_system_default") ||
+    providerId?.startsWith("pp_telebirr") ||
+    providerId?.startsWith("telebirr") ||
+    providerId?.startsWith("manual")
+  )
 }
 
 export const currencySymbolMap: Record<string, string> = {
+  etb: "ETB ",
   usd: "$",
   eur: "€",
   gbp: "£",

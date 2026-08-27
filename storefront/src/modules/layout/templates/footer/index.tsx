@@ -3,7 +3,6 @@ import { listCollections } from "@/lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import MedusaCTA from "@/modules/layout/components/medusa-cta"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -16,21 +15,43 @@ export default async function Footer() {
   })
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base w-full bg-white text-neutral-800">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
+        <div className="flex flex-col gap-y-10 lg:flex-row items-start justify-between py-16">
+          <div className="flex flex-col max-w-sm">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="flex items-center gap-2 mb-4"
             >
-              Medusa Store
+              <span className="w-8 h-8 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                AB
+              </span>
+              <div className="flex flex-col">
+                <span className="text-base font-bold text-neutral-900 leading-tight">
+                  Addis B2B Wholesale
+                </span>
+                <span className="text-[10px] text-neutral-500 font-medium uppercase tracking-wider">
+                  Ethiopia Corporate Commerce
+                </span>
+              </div>
             </LocalizedClientLink>
+            <p className="text-xs text-neutral-600 leading-relaxed mb-4">
+              Ethiopia&apos;s centralized digital platform for wholesale supply, bulk quoting, and direct enterprise distribution. Fully integrated with ETB invoicing, VAT & TIN compliance.
+            </p>
+            <div className="text-xs text-neutral-700 space-y-1 border-l-2 border-emerald-600 pl-3">
+              <p className="font-semibold text-neutral-900">Addis Ababa Head Office:</p>
+              <p>Bole Sub-City, Kazanchis Business District</p>
+              <p>Addis Ababa, Ethiopia</p>
+              <p className="text-emerald-800 font-medium pt-1">
+                Tel: +251 11 667 8900 / +251 91 123 4567
+              </p>
+            </div>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
+
+          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3 w-full lg:w-auto">
             {product_categories && product_categories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="txt-small-plus txt-ui-fg-base font-semibold">
                   Categories
                 </span>
                 <ul
@@ -39,15 +60,8 @@ export default async function Footer() {
                 >
                   {product_categories?.slice(0, 6).map((c) => {
                     if (c.parent_category) {
-                      return
+                      return null
                     }
-
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
 
                     return (
                       <li
@@ -55,54 +69,29 @@ export default async function Footer() {
                         key={c.id}
                       >
                         <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
+                          className="hover:text-emerald-700 transition-colors"
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
                           {c.name}
                         </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
                       </li>
                     )
                   })}
                 </ul>
               </div>
             )}
+
             {collections && collections.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
+                <span className="txt-small-plus txt-ui-fg-base font-semibold">
+                  Wholesale Collections
                 </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
+                <ul className="grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small">
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="hover:text-emerald-700 transition-colors"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -112,48 +101,58 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
+
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base font-semibold">
+                B2B Services
+              </span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                  <LocalizedClientLink
+                    href="/store"
+                    className="hover:text-emerald-700 transition-colors"
                   >
-                    GitHub
-                  </a>
+                    Wholesale Catalog
+                  </LocalizedClientLink>
                 </li>
                 <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                  <LocalizedClientLink
+                    href="/account"
+                    className="hover:text-emerald-700 transition-colors"
                   >
-                    Documentation
-                  </a>
+                    Corporate Portal
+                  </LocalizedClientLink>
                 </li>
                 <li>
-                  <a
-                    href="https://github.com/medusajs/b2b-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                  <LocalizedClientLink
+                    href="/account"
+                    className="hover:text-emerald-700 transition-colors"
                   >
-                    Source code
-                  </a>
+                    Request Quotation (RFQ)
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <span className="text-emerald-700 font-medium">
+                    Accepted Payments:
+                  </span>
+                  <p className="text-[11px] text-neutral-500 mt-0.5">
+                    Telebirr • CBE Birr • Bank Wire • Net 30 Invoicing
+                  </p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+
+        <div className="flex flex-col sm:flex-row w-full py-6 border-t border-neutral-200 justify-between items-center gap-4 text-ui-fg-muted">
+          <Text className="txt-compact-small text-neutral-600">
+            © {new Date().getFullYear()} Addis B2B Wholesale PLC. Registered in Addis Ababa, Ethiopia. All rights reserved.
           </Text>
-          <MedusaCTA />
+          <div className="flex items-center gap-4 text-xs text-neutral-500">
+            <span>🇪🇹 Official ETB Pricing</span>
+            <span>•</span>
+            <span>VAT & TIN Invoice Ready</span>
+          </div>
         </div>
       </div>
     </footer>

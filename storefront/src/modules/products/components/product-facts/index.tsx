@@ -8,7 +8,7 @@ import { HttpTypes } from "@medusajs/types"
 const ProductFacts = ({ product }: { product: HttpTypes.StoreProduct }) => {
   const inventoryQuantity =
     product.variants?.reduce(
-      (acc, variant) => acc + (variant.inventory_quantity ?? 0),
+      (acc, variant) => acc + (variant.inventory_quantity ?? 150),
       0
     ) || 0
 

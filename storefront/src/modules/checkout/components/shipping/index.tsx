@@ -102,37 +102,45 @@ const Shipping: React.FC<ShippingProps> = ({
       {isOpen ? (
         <div data-testid="delivery-options-container">
           <div className="">
-            <RadioGroup value={selectedMethodId} onChange={set}>
-              {availableShippingMethods?.map((option) => (
-                <div key={option.id}>
-                  <RadioGroupOption
-                    value={option.id}
-                    data-testid="delivery-option-radio"
-                    className={clx(
-                      "flex items-center justify-between text-small-regular cursor-pointer py-2",
-                      {
-                        "border-ui-border-interactive":
-                          option.id === selectedShippingMethod?.id,
-                      }
-                    )}
-                  >
-                    <div className="flex items-center gap-x-4">
-                      <Radio
-                        checked={option.id === selectedShippingMethod?.id}
-                      />
-                      <span className="text-base-regular">{option.name}</span>
-                    </div>
-                    <span className="justify-self-end text-ui-fg-base">
-                      {convertToLocale({
-                        amount: option.amount!,
-                        currency_code: cart?.currency_code,
-                      })}
-                    </span>
-                  </RadioGroupOption>
-                  <Divider />
-                </div>
-              ))}
-            </RadioGroup>
+            {availableShippingMethods?.length ? (
+              <RadioGroup value={selectedMethodId} onChange={set}>
+                {availableShippingMethods.map((option) => (
+                  <div key={option.id}>
+                    <RadioGroupOption
+                      value={option.id}
+                      data-testid="delivery-option-radio"
+                      className={clx(
+                        "flex items-center justify-between text-small-regular cursor-pointer py-2",
+                        {
+                          "border-ui-border-interactive":
+                            option.id === selectedShippingMethod?.id,
+                        }
+                      )}
+                    >
+                      <div className="flex items-center gap-x-4">
+                        <Radio
+                          checked={option.id === selectedShippingMethod?.id}
+                        />
+                        <span className="text-base-regular">{option.name}</span>
+                      </div>
+                      <span className="justify-self-end text-ui-fg-base">
+                        {convertToLocale({
+                          amount: option.amount!,
+                          currency_code: cart?.currency_code,
+                        })}
+                      </span>
+                    </RadioGroupOption>
+                    <Divider />
+                  </div>
+                ))}
+              </RadioGroup>
+            ) : (
+              <Text className="txt-medium text-ui-fg-subtle py-4">
+                No delivery methods are available for this address. Confirm the
+                shipping country is Ethiopia and that products are assigned to a
+                shipping profile.
+              </Text>
+            )}
           </div>
           <div className="flex flex-col gap-y-2 items-end">
             <ErrorMessage

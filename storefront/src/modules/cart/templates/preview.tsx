@@ -33,11 +33,7 @@ const ItemsPreviewTemplate = ({ items, currencyCode }: ItemsTemplateProps) => {
                   <ItemPreview
                     key={item.id}
                     currencyCode={currencyCode}
-                    item={
-                      item as BaseCartLineItem & {
-                        metadata?: { note?: string }
-                      }
-                    }
+                    item={item as any}
                     showBorders={false}
                   />
                 )

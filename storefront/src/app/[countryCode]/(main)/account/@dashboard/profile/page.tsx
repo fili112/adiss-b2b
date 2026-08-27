@@ -7,8 +7,8 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
-  title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+  title: "Company Profile | Addis B2B Ethiopia",
+  description: "View and edit your company and employee details on Addis B2B.",
 }
 
 export default async function Profile() {

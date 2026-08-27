@@ -3,8 +3,8 @@ import LoginTemplate from "@/modules/account/templates/login-template"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Log in",
-  description: "Log in to your Medusa Store account.",
+  title: "Corporate Account Login | Addis B2B Ethiopia",
+  description: "Log in to your Addis B2B wholesale company account.",
 }
 
 export default async function Login() {

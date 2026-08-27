@@ -14,15 +14,17 @@ const ShippingAddressForm = ({
   customer: B2BCustomer | null
   cart: B2BCart | null
 }) => {
+  const defaultCountryCode = cart?.region?.countries?.[0]?.iso_2 || "et"
+
   const [formData, setFormData] = useState<Record<string, any>>({
     "shipping_address.first_name": "",
     "shipping_address.last_name": "",
     "shipping_address.address_1": "",
     "shipping_address.company": cart?.company?.name || "",
-    "shipping_address.postal_code": "",
-    "shipping_address.city": "",
-    "shipping_address.country_code": "",
-    "shipping_address.province": "",
+    "shipping_address.postal_code": "1000",
+    "shipping_address.city": "Addis Ababa",
+    "shipping_address.country_code": defaultCountryCode,
+    "shipping_address.province": "Addis Ababa",
     "shipping_address.phone": "",
     email: "",
   })

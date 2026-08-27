@@ -22,17 +22,15 @@ export async function POST(
     { throwIfKeyNotFound: true }
   );
 
-  const workflowInput = {
-    cart_id: cart.id,
-    items: line_items,
-  };
-
   await addToCartWorkflow(req.scope).run({
-    input: workflowInput,
+    input: {
+      cart_id: cart.id,
+      items: line_items,
+    },
   });
 
   const {
-    data: [upatedCart],
+    data: [updatedCart],
   } = await query.graph(
     {
       entity: "cart",
@@ -42,5 +40,5 @@ export async function POST(
     { throwIfKeyNotFound: true }
   );
 
-  res.json({ cart: upatedCart });
+  res.json({ cart: updatedCart });
 }

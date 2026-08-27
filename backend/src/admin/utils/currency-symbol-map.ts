@@ -1,4 +1,5 @@
 export const currencySymbolMap = {
+  etb: "Br",
   usd: "$",
   eur: "€",
   gbp: "£",

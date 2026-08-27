@@ -1,209 +1,413 @@
-> ⚠️ This repository is now deprecated. Refer to [b2b-starter](https://github.com/medusajs/b2b-starter) instead.
+# 🇪🇹 Ethiopia B2B E-commerce Platform
 
-<h1 align="center">
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="B2B Commerce Starter" width="80" height="80"></a>
-  <br>
-  <br>
-  Medusa B2B Commerce Starter
-  <br>
-</h1>
+A fully customized Medusa B2B e-commerce platform for the Ethiopian market, featuring Ethiopian Birr (ETB) currency, Ethiopia-only region, and a complete distributor-business-employee model.
 
-<p align="center">Customizable B2B ecommerce built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
+---
 
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
-
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/833b26a5-4b52-447f-ac30-6ae02cbe8f05" controls="controls" muted="muted" playsinline="playsinline">
-</video>
-</p>
-
-<br>
-
-## Table
-
-- [Prerequisites](#prerequisites)
-- [Overview](#overview)
-  - [Features](#features)
-  - [Demo](#demo)
-- [Quickstart](#quickstart)
-- [Update](#update)
-- [Resources](#resources)
-- [Contributors](#contributors)
-
-&nbsp;
-
-## Prerequisites
-
-⚠️ We have tested this repo with the below versions:
-
-- ✅ Node 20
-- ✅ Postgres 15
-- ✅ Medusa 2.4
-- ✅ Next.js 15
-
-&nbsp;
-
-## Overview
-For a full feature overview, please visit [the project wiki](https://github.com/medusajs/b2b-starter-medusa/wiki).
-
-#### Core features
-
-- **Company Management**. Customers can manage their company and invite employees.
-- **Spending Limits**. Company admins can assign spending limits to its employees.
-- **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
-- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes.
-- **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
-- **Company Approvals**. Companies can mandate approvals from company admins before employees can finalize a cart.
-- **Merchant Approvals**. Merchants can set up approval processes for orders, ensuring compliance with business rules before fulfillment.
-- **Promotions**. Customers can apply manual and automatic promotions to their cart.
-- **Free Shipping Nudge**. Displays a component showing progress toward free shipping.
-- **Full ecommerce support**
-  - Product Pages
-  - Product Collections & Categories
-  - Cart & Checkout
-  - User Accounts
-  - Order Details
-- **Full Next.js 15 support**
-  - App Router
-  - Caching
-  - Server components/actions
-  - Streaming
-  - Static Pre-Rendering
-
-&nbsp;
-
-#### Demo
-
-#### Quote Management
-
-<img align="right" src="https://github.com/user-attachments/assets/110c99e8-18ba-49e5-8955-84a058b597c7" alt="image" style=: />
-&nbsp;
-
-#### Company Management
-
-<img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
-&nbsp;
-
-#### Approval Management
-
-<img align="right" src="https://github.com/user-attachments/assets/b93b7b94-41a9-4c5f-bd6b-abf87492ed46" alt="image" style=: />
-&nbsp;
-
-#### Product Page
-
-<img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
-&nbsp;
-
-#### Cart Summary
-
-<img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
-&nbsp;
-
-&nbsp;
-
-## Quickstart
-
-#### Setup Medusa project
+## 🎯 Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/medusajs/b2b-starter-medusa.git
+cd backend
+npm install
+npm run build
+npm run seed          # Creates Ethiopia region, products, shipping
+npm run demo-setup    # Creates 4 demo companies
+npm run dev
+```
 
-## Setup Backend
+**Admin Panel**: http://localhost:9000/app
 
-# Go to the folder
-cd ./backend
+---
 
-# Clone .env.template
+## ✨ Features
+
+### 🇪🇹 Ethiopia-Specific
+- **Currency**: Ethiopian Birr (ETB) only - no multi-currency complexity
+- **Region**: Ethiopia (ET) exclusively
+- **Warehouse**: Addis Ababa central distribution
+- **Shipping**: Nationwide Ethiopia coverage
+- **Addresses**: Ethiopian format (city, state/region, zip)
+- **Phone Numbers**: +251 format
+
+### 🏢 B2B Features
+- **Company Management**: Manage multiple business customers
+- **Employee System**: Employees within companies, individual limits
+- **Approval Workflows**: Multi-level (company admin + sales manager)
+- **Quote System**: Request, negotiate, and accept bulk quotes
+- **Tiered Pricing**: Bronze, Silver, Gold, Platinum customer groups
+- **Spending Limits**: Daily, weekly, monthly, or yearly controls
+
+---
+
+## 📚 Documentation
+
+| File | Purpose | Length |
+|------|---------|--------|
+| **[ETHIOPIA_SETUP.md](ETHIOPIA_SETUP.md)** | Complete setup & configuration guide | 270+ lines |
+| **[DEMO_CHECKLIST.md](DEMO_CHECKLIST.md)** | Step-by-step demonstration guide | 450+ lines |
+| **[DEMO_QUICK_REFERENCE.md](DEMO_QUICK_REFERENCE.md)** | One-page cheat sheet | Quick ref |
+| **[B2B_MODEL_EXPLAINED.md](B2B_MODEL_EXPLAINED.md)** | Visual diagrams & explanations | 400+ lines |
+| **[CUSTOMIZATION_SUMMARY.md](CUSTOMIZATION_SUMMARY.md)** | Complete change log | This project |
+| **[backend/README.md](backend/README.md)** | Technical backend docs | Backend |
+
+---
+
+## 🏗️ Architecture
+
+```
+DISTRIBUTOR (You)
+    ↓
+COMPANIES (Business Customers)
+    • Bole Electronics Retail (Addis Ababa)
+    • Merkato Tech Solutions (Addis Ababa)
+    • Bahir Dar Office Supplies (Bahir Dar)
+    • Hawassa Industrial Corp (Hawassa)
+    ↓
+EMPLOYEES (Individual Buyers)
+    • Company Admins (approve orders)
+    • Regular Employees (place orders)
+    ↓
+ORDERS & QUOTES (ETB transactions)
+```
+
+---
+
+## 💰 Pricing
+
+### Sample Products (ETB)
+- 16" Laptop: 125,900-129,900 ETB
+- Smartphone: 95,900-99,900 ETB
+- 34" Monitor: 59,900 ETB
+- Gaming Headset: 14,900 ETB
+- Wireless Keyboard: 9,900 ETB
+- Wireless Mouse: 7,900 ETB
+- Conference Speaker: 5,500-7,900 ETB
+- HD Webcam: 2,900-3,200 ETB
+
+### Pricing Tiers
+- 🥉 **Bronze**: Standard pricing (new customers)
+- 🥈 **Silver**: 5% discount (regular customers)
+- 🥇 **Gold**: 10% discount (large customers)
+- 💎 **Platinum**: 15% discount (enterprise/VIP)
+
+### Bulk Discounts
+- 1-10 units: Base price
+- 11-50 units: +3% off
+- 51-100 units: +5% off
+- 100+ units: +8% off + custom quote
+
+---
+
+## 🎭 Demo Companies
+
+The `npm run demo-setup` command creates:
+
+| Company | Location | Sector | Limit | Employees |
+|---------|----------|--------|-------|-----------|
+| **Bole Electronics** | Addis Ababa | Electronics | 500K ETB/mo | 2 |
+| **Merkato Tech** | Addis Ababa | IT Services | 300K ETB/wk | 1 |
+| **Bahir Dar Office** | Bahir Dar | Office Supplies | 150K ETB/mo | 1 |
+| **Hawassa Industrial** | Hawassa | Manufacturing | 1M ETB/mo | 2 |
+
+Each company has realistic Ethiopian addresses, phone numbers, and email addresses.
+
+---
+
+## 🚀 Demo Flow
+
+### 30-Minute Demo
+1. **Introduction** (3 min) - Ethiopia-specific features
+2. **Company Management** (5 min) - View and create companies
+3. **Product Catalog** (3 min) - Browse ETB-priced products
+4. **Tiered Pricing** (3 min) - Customer groups setup
+5. **Approval Workflows** (5 min) - Multi-level approvals
+6. **Quote System** (5 min) - Quote negotiation
+7. **Order Management** (3 min) - Order processing
+8. **Regional Config** (3 min) - Ethiopia settings
+
+**Full guide**: See [DEMO_CHECKLIST.md](DEMO_CHECKLIST.md)
+
+---
+
+## 🔧 Technical Stack
+
+### Backend
+- **Framework**: Medusa 2.8.4
+- **Database**: PostgreSQL
+- **Language**: TypeScript
+- **ORM**: MikroORM
+- **Cache**: In-memory (Redis for production)
+
+### Custom Modules
+- **Company Module**: B2B company & employee management
+- **Quote Module**: Quote request & negotiation system
+- **Approval Module**: Multi-level approval workflows
+
+### Admin UI
+- **Framework**: React 18
+- **UI Library**: Medusa UI
+- **Custom Pages**: Companies, Quotes, Approvals
+
+---
+
+## 🌍 Geographic Coverage
+
+```
+ETHIOPIA REGIONS SUPPORTED
+├─ Addis Ababa (Capital, Warehouse)
+├─ Amhara Region (Bahir Dar)
+├─ Oromia Region
+├─ SNNPR (Hawassa)
+├─ Tigray Region
+├─ Somali Region
+├─ Afar Region
+├─ Benishangul-Gumuz
+├─ Gambela Region
+├─ Harari Region
+└─ Dire Dawa
+```
+
+**Shipping**: Standard (2-3 days) or Express (24 hours) - 1,000 ETB flat rate
+
+---
+
+## 📦 What's Included
+
+### ✅ Pre-configured
+- Ethiopia region (ET) with ETB currency
+- Addis Ababa warehouse
+- 8 sample products with ETB pricing
+- Shipping options (Standard & Express)
+- Tax regions for Ethiopia
+- Default sales channel
+- Publishable API key
+
+### ✅ B2B System
+- Company model with Ethiopian fields
+- Employee model with spending limits
+- Quote request & negotiation system
+- Multi-level approval workflows
+- Customer group integration
+- Order approval flows
+
+### ✅ Demo Data (Optional)
+- 4 Ethiopian companies
+- 6 employees with different roles
+- Realistic addresses and contacts
+- Varied spending limits
+- Cross-Ethiopia geographic spread
+
+### ✅ Documentation
+- Complete setup guide
+- Demo walkthrough
+- Visual explanations
+- API reference
+- Technical docs
+
+---
+
+## 🎯 Use Cases
+
+### For Distributors
+✅ Manage multiple business customers from one platform  
+✅ Set custom pricing per customer tier  
+✅ Review and approve large orders  
+✅ Negotiate bulk deals via quotes  
+✅ Track customer spending patterns  
+✅ Fulfill from central Addis Ababa warehouse  
+
+### For Business Customers
+✅ Company-wide purchasing account  
+✅ Multiple employees with different limits  
+✅ Admin approval for employee orders  
+✅ Request quotes for bulk purchases  
+✅ Track spending against budgets  
+✅ Order history and analytics  
+
+---
+
+## 💡 Why This Platform?
+
+### Ethiopia-Focused
+- **No Currency Hassles**: Everything in Birr (ETB)
+- **Local Optimization**: Ethiopian addresses, phones, business practices
+- **Single Market**: No multi-country complexity
+- **Scalable**: Supports businesses across all Ethiopian cities
+
+### B2B-Optimized
+- **Hierarchy**: Distributor → Company → Employee model
+- **Control**: Spending limits and approval workflows
+- **Flexibility**: Tiered pricing and custom quotes
+- **Efficiency**: Bulk ordering and negotiation tools
+
+---
+
+## 🛠️ Installation
+
+### Prerequisites
+- Node.js 20+
+- PostgreSQL
+- Git
+
+### Setup
+```bash
+# Clone repository
+git clone <your-repo-url>
+cd medusa-b2b
+
+# Install backend
+cd backend
+npm install
+
+# Configure environment
 cp .env.template .env
+# Edit .env with your PostgreSQL credentials
 
-# Install dependencies
-yarn install
+# Build and migrate
+npm run build
 
-# Install dependencies, setup database & seed data
-yarn install && yarn medusa db:create && yarn medusa db:migrate && yarn run seed && yarn medusa user -e admin@test.com -p supersecret -i admin
+# Seed Ethiopia region and products
+npm run seed
 
-# Start Medusa project - backend & admin
-yarn dev
+# (Optional) Create demo companies
+npm run demo-setup
 
-## Setup Storefront
-
-# Go to folder
-cd ../storefront
-
-# Clone .env.template
-cp .env.template .env
-
-# Install dependencies
-yarn install
+# Start development server
+npm run dev
 ```
 
-#### Setup publishable key
+### Access
+- **Admin Panel**: http://localhost:9000/app
+- **API**: http://localhost:9000
+- **First user auto-registers as admin**
 
-- ✅ Visit [Admin: Publishable Key](http://localhost:9000/app/settings/publishable-api-keys)
-  - <b>Credentials</b>:
-    - <b>email</b>: `admin@test.com`
-    - <b>password</b>: `supersecret`
-- ✅ Copy token key of "Webshop"
-- ✅ Open file - `storefront/.env`
-- ✅ Add token to this var - `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`
+---
 
+## 📖 API Endpoints
+
+### Companies
 ```
-# Start Medusa storefront
-yarn dev
+GET    /admin/company          List all companies
+POST   /admin/company          Create company
+GET    /admin/company/:id      Get company
+PUT    /admin/company/:id      Update company
+DELETE /admin/company/:id      Delete company
 ```
 
-Visit the following links to see the Medusa storefront & admin
+### Employees
+```
+GET    /admin/employee         List employees
+POST   /admin/employee         Create employee
+PUT    /admin/employee/:id     Update employee
+DELETE /admin/employee/:id     Delete employee
+```
 
-- [Medusa Admin](http://localhost:9000/app)
-- [Medusa Storefront](http://localhost:8000)
+### Quotes
+```
+GET    /admin/quotes           List quotes
+GET    /admin/quotes/:id       Get quote
+PUT    /admin/quotes/:id       Update quote
+POST   /admin/quotes/:id/accept Accept quote
+```
 
-&nbsp;
+### Approvals
+```
+GET    /admin/approvals        List approvals
+POST   /admin/approvals/:id/approve  Approve request
+POST   /admin/approvals/:id/reject   Reject request
+```
 
-# Update
+**Full API docs**: See [backend/README.md](backend/README.md)
 
-Some general guidelines for when you're updating this Starter to a newer version.
+---
 
-## Update packages
+## 🧪 Testing
 
-Run `yarn install` in both projects to update you're packages to the latest versions.
+```bash
+# Run all tests
+npm run test:unit
+npm run test:integration:http
+npm run test:integration:modules
+```
 
-## Run migrations
+---
 
-To reflect any changes made to data models, make sure to run `npx medusa db:migrate` in the backend project.
+## 🔐 Security
 
-> Note: are you updating from a version of this Starter that didn't have the Approval module yet? Run `npx medusa exec src/scripts/create-approval-settings.ts` in the backend project to add approval settings to all existing companies.
+- JWT authentication
+- Role-based access control (admin, company admin, employee)
+- Spending limit enforcement
+- Approval workflow requirement
+- Secure password handling
+- CORS configuration
+- Environment variable protection
 
-# Resources
+---
 
-#### Learn more about Medusa
+## 🚀 Next Steps
 
-- [Website](https://www.medusajs.com/)
-- [GitHub](https://github.com/medusajs)
-- [2.0 Documentation](https://docs.medusajs.com/v2)
+### For Demo
+1. ✅ Run setup commands
+2. ✅ Create admin account
+3. ✅ Review demo checklist
+4. ✅ Practice demo flow
+5. ✅ Prepare talking points
 
-#### Learn more about Next.js
+### For Production
+1. ⬜ Import product catalog
+2. ⬜ Configure payment gateways (TeleBirr, CBE Birr, M-Pesa)
+3. ⬜ Import customer companies
+4. ⬜ Set up pricing tiers
+5. ⬜ Train admin staff
+6. ⬜ Deploy to production
+7. ⬜ Launch pilot program
 
-- [Website](https://nextjs.org/)
-- [GitHub](https://github.com/vercel/next.js)
-- [Documentation](https://nextjs.org/docs)
+---
 
-&nbsp;
+## 🤝 Contributing
 
-## Contributors
+This is a customized platform. For modifications:
+1. Review existing code structure
+2. Follow TypeScript best practices
+3. Maintain Ethiopia-specific focus
+4. Update documentation
+5. Test thoroughly
 
-<a href = "https://github.com/medusajs/b2b-starter-medusa/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=medusajs/b2b-starter-medusa"/>
-</a>
+---
+
+## 📄 License
+
+MIT License - See LICENSE file
+
+---
+
+## 📞 Support
+
+For questions or issues:
+- **Setup**: See [ETHIOPIA_SETUP.md](ETHIOPIA_SETUP.md)
+- **Demo**: See [DEMO_CHECKLIST.md](DEMO_CHECKLIST.md)
+- **Technical**: See [backend/README.md](backend/README.md)
+- **Medusa Docs**: https://docs.medusajs.com
+
+---
+
+## 🎉 Ready for Demo!
+
+Everything is configured and ready for demonstration:
+
+✅ Ethiopian Birr (ETB) currency  
+✅ Ethiopia (ET) region only  
+✅ Addis Ababa warehouse  
+✅ 8 products with ETB pricing  
+✅ 4 demo companies  
+✅ B2B features fully functional  
+✅ Complete documentation  
+
+**Start your demo**: Follow [DEMO_CHECKLIST.md](DEMO_CHECKLIST.md)
+
+---
+
+**Version**: 1.0.0 (Ethiopia Edition)  
+**Built for**: Ethiopian B2B Market  
+**Currency**: Ethiopian Birr (ETB)  
+**Region**: Ethiopia 🇪🇹

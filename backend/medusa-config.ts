@@ -26,11 +26,46 @@ module.exports = defineConfig({
     [APPROVAL_MODULE]: {
       resolve: "./modules/approval",
     },
+    loyalty: {
+      resolve: "./modules/loyalty",
+    },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
     },
     [Modules.WORKFLOW_ENGINE]: {
       resolve: "@medusajs/medusa/workflow-engine-inmemory",
+    },
+    [Modules.STOCK_LOCATION]: {
+      resolve: "@medusajs/medusa/stock-location",
+    },
+    [Modules.INVENTORY]: {
+      resolve: "@medusajs/medusa/inventory",
+    },
+    [Modules.FULFILLMENT]: {
+      resolve: "@medusajs/medusa/fulfillment",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/medusa/fulfillment-manual",
+            id: "manual",
+          },
+        ],
+      },
+    },
+
+    [Modules.PAYMENT]: {
+      resolve: "@medusajs/medusa/payment",
+      options: {
+        providers: [
+          {
+            resolve: "./src/modules/telebirr",
+            id: "telebirr",
+            options: {
+              merchantAppId: process.env.TELEBIRR_APP_ID || "test",
+            },
+          },
+        ],
+      },
     },
   },
 });

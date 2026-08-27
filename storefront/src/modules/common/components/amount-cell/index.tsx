@@ -1,9 +1,10 @@
 import { clx } from "@medusajs/ui"
 
 export const formatAmount = (amount: number, currency_code: string) => {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-ET", {
     style: "currency",
-    currency: currency_code,
+    currency: "ETB", // Force ETB regardless of input
+    minimumFractionDigits: 2,
   }).format(amount)
 }
 

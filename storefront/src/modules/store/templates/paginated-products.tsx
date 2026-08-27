@@ -3,6 +3,7 @@ import { getRegion } from "@/lib/data/regions"
 import ProductPreview from "@/modules/products/components/product-preview"
 import { Pagination } from "@/modules/store/components/pagination"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { B2BCustomer } from "@/types"
 import { Container } from "@medusajs/ui"
 
@@ -15,6 +16,7 @@ type PaginatedProductsParams = {
   id?: string[]
   order?: string
   customer_group_id?: string
+  q?: string
 }
 
 export default async function PaginatedProducts({
@@ -25,6 +27,7 @@ export default async function PaginatedProducts({
   productsIds,
   countryCode,
   customer,
+  searchQuery,
 }: {
   sortBy?: SortOptions
   page: number
@@ -33,6 +36,7 @@ export default async function PaginatedProducts({
   productsIds?: string[]
   countryCode: string
   customer?: B2BCustomer | null
+  searchQuery?: string
 }) {
   const queryParams: PaginatedProductsParams = {
     limit: 12,
@@ -52,6 +56,10 @@ export default async function PaginatedProducts({
     queryParams["order"] = "created_at"
   }
 
+  if (searchQuery) {
+    queryParams["q"] = searchQuery
+  }
+
   const region = await getRegion(countryCode)
 
   if (!region) {
@@ -67,10 +75,45 @@ export default async function PaginatedProducts({
     countryCode,
   })
 
+  // Client-side fallback filter if Medusa backend does not apply text matching on q directly
+  if (searchQuery && products.length === 0) {
+    const allProductsResult = await listProductsWithSort({
+      page: 1,
+      queryParams: { limit: 100 },
+      sortBy,
+      countryCode,
+    })
+    const queryLower = searchQuery.toLowerCase()
+    const matching = allProductsResult.response.products.filter((p) =>
+      p.title?.toLowerCase().includes(queryLower) ||
+      p.description?.toLowerCase().includes(queryLower) ||
+      p.handle?.toLowerCase().includes(queryLower)
+    )
+    if (matching.length > 0) {
+      products = matching.slice((page - 1) * PRODUCT_LIMIT, page * PRODUCT_LIMIT)
+      count = matching.length
+    }
+  }
+
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 
   return (
-    <>
+    <div className="flex flex-col w-full gap-4">
+      {searchQuery && (
+        <div className="flex items-center justify-between bg-white px-4 py-3 rounded-xl border border-neutral-200 text-xs text-neutral-700 shadow-xs">
+          <span>
+            Search results for <strong className="text-neutral-950 font-bold">&ldquo;{searchQuery}&rdquo;</strong>{" "}
+            <span className="text-neutral-500">({count} product{count === 1 ? "" : "s"} found)</span>
+          </span>
+          <LocalizedClientLink
+            href="/store"
+            className="text-emerald-700 hover:text-emerald-800 font-semibold underline"
+          >
+            Clear Search
+          </LocalizedClientLink>
+        </div>
+      )}
+
       <ul
         className="grid grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-3"
         data-testid="products-list"
@@ -84,8 +127,10 @@ export default async function PaginatedProducts({
             )
           })
         ) : (
-          <Container className="text-center text-sm text-neutral-500">
-            No products found for this category.
+          <Container className="text-center text-sm text-neutral-500 col-span-full py-12">
+            {searchQuery
+              ? `No products found matching "${searchQuery}". Try searching with different keywords.`
+              : "No products found for this category."}
           </Container>
         )}
       </ul>
@@ -96,6 +141,6 @@ export default async function PaginatedProducts({
           totalPages={totalPages}
         />
       )}
-    </>
+    </div>
   )
 }

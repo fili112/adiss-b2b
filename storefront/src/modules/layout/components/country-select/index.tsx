@@ -10,9 +10,9 @@ import { updateRegion } from "@/lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 
 type CountryOption = {
-  country: string
+  country?: string
   region: string
-  label: string
+  label?: string
 }
 
 type CountrySelectProps = {
@@ -52,7 +52,9 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   }, [options, countryCode])
 
   const handleChange = (option: CountryOption) => {
-    updateRegion(option.country, currentPath)
+    if (option.country) {
+      updateRegion(option.country, currentPath)
+    }
     close()
   }
 

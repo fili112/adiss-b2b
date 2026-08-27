@@ -24,15 +24,11 @@ export default async function CheckoutForm({
     return null
   }
 
-  const shippingMethods = await listCartShippingMethods(cart.id)
-  const paymentMethods = await listCartPaymentMethods(cart.region?.id ?? "")
+  const shippingMethods = (await listCartShippingMethods(cart.id)) || []
+  const paymentMethods = (await listCartPaymentMethods(cart.region?.id ?? "")) || []
   const requiresApproval =
     cart.company?.approval_settings?.requires_admin_approval ||
     cart.company?.approval_settings?.requires_sales_manager_approval
-
-  if (!shippingMethods || !paymentMethods) {
-    return null
-  }
 
   return (
     <div>

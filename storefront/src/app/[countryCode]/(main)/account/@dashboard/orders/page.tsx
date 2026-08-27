@@ -8,6 +8,8 @@ import { ApprovalStatusType } from "@/types/approval"
 import { Heading } from "@medusajs/ui"
 import { Metadata } from "next"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Orders",
   description: "Overview of your previous orders.",
@@ -15,18 +17,22 @@ export const metadata: Metadata = {
 
 export default async function Orders() {
   const customer = await retrieveCustomer()
-  const orders = await listOrders()
+  const orders = (await listOrders().catch(() => [])) || []
 
-  const { approval_settings } =
-    (await retrieveCompany(customer?.employee?.company_id!)) || {}
+  const company = customer?.employee?.company_id
+    ? await retrieveCompany(customer.employee.company_id).catch(() => null)
+    : null
 
+  const approval_settings = company?.approval_settings
   const approval_required =
     approval_settings?.requires_admin_approval ||
     approval_settings?.requires_sales_manager_approval
 
-  const { carts_with_approvals } = await listApprovals({
-    status: ApprovalStatusType.PENDING,
-  })
+  const approvalsResponse = approval_required
+    ? await listApprovals({ status: ApprovalStatusType.PENDING }).catch(() => null)
+    : null
+
+  const carts_with_approvals = approvalsResponse?.carts_with_approvals || []
 
   return (
     <div

@@ -1,4 +1,5 @@
 import { listRegions } from "@/lib/data/regions"
+import EthiopiaB2BFeatures from "@/modules/home/components/features"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
 import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
@@ -8,9 +9,9 @@ import { Suspense } from "react"
 export const dynamicParams = true
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Addis B2B Wholesale | Ethiopia's B2B E-Commerce Marketplace",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Direct wholesale distributor procurement in Ethiopia with ETB pricing, official tax invoices, custom quotes, and nationwide delivery.",
 }
 
 export async function generateStaticParams() {
@@ -32,11 +33,12 @@ export default async function Home(props: {
   const { countryCode } = params
 
   return (
-    <div className="flex flex-col gap-y-2 m-2">
+    <div className="flex flex-col gap-y-4 m-2">
       <Hero />
       <Suspense fallback={<SkeletonFeaturedProducts />}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
+      <EthiopiaB2BFeatures />
     </div>
   )
 }

@@ -11,14 +11,15 @@ import { Suspense } from "react"
 export const dynamicParams = true
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Explore all of our products.",
+  title: "Wholesale Catalog | Addis B2B Ethiopia",
+  description: "Browse wholesale inventory, bulk tier pricing, and request corporate quotes in Ethiopian Birr (ETB).",
 }
 
 type Params = {
   searchParams: Promise<{
     sortBy?: SortOptions
     page?: string
+    q?: string
   }>
   params: Promise<{
     countryCode: string
@@ -28,7 +29,7 @@ type Params = {
 export default async function StorePage(props: Params) {
   const params = await props.params
   const searchParams = await props.searchParams
-  const { sortBy, page } = searchParams
+  const { sortBy, page, q } = searchParams
 
   const sort = sortBy || "created_at"
   const pageNumber = page ? parseInt(page) : 1
@@ -37,13 +38,13 @@ export default async function StorePage(props: Params) {
   const customer = await retrieveCustomer()
 
   return (
-    <div className="bg-neutral-100">
+    <div className="bg-neutral-100 min-h-screen">
       <div
         className="flex flex-col py-6 content-container gap-4"
         data-testid="category-container"
       >
         <StoreBreadcrumb />
-        <div className="flex flex-col small:flex-row small:items-start gap-3">
+        <div className="flex flex-col small:flex-row small:items-start gap-4">
           <RefinementList sortBy={sort} categories={categories} />
           <div className="w-full">
             <Suspense fallback={<SkeletonProductGrid />}>
@@ -52,6 +53,7 @@ export default async function StorePage(props: Params) {
                 page={pageNumber}
                 countryCode={params.countryCode}
                 customer={customer}
+                searchQuery={q}
               />
             </Suspense>
           </div>
@@ -60,4 +62,3 @@ export default async function StorePage(props: Params) {
     </div>
   )
 }
-;``

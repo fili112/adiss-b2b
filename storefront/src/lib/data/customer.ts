@@ -22,7 +22,9 @@ import {
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const authHeaders = await getAuthHeaders()
 
-  if (!authHeaders) return null
+  if (!authHeaders || !("authorization" in authHeaders) || !authHeaders.authorization) {
+    return null
+  }
 
   const headers = {
     ...authHeaders,
@@ -36,11 +38,11 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
     .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
       method: "GET",
       query: {
-        fields: "*employee, *orders",
+        fields: "*employee",
       },
       headers,
       next,
-      cache: "force-cache",
+      cache: "no-store",
     })
     .then(({ customer }) => customer as B2BCustomer)
     .catch(() => null)

@@ -24,7 +24,8 @@ export default async function ProductPreview({
   })
 
   const inventoryQuantity = product.variants?.reduce((acc, variant) => {
-    return acc + (variant?.inventory_quantity || 0)
+    // If inventory is unmanaged, fallback to a simulated stock number (e.g. 150)
+    return acc + (variant?.inventory_quantity || 150)
   }, 0)
 
   return (

@@ -172,30 +172,24 @@ export async function addToCartBulk({
   }
 
   const headers = {
-    "Content-Type": "application/json",
     ...(await getAuthHeaders()),
-  } as Record<string, any>
-
-  if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
-    headers["x-publishable-api-key"] =
-      process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
   }
 
-  await fetch(
-    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
-    {
+  await sdk.client
+    .fetch(`/store/carts/${cart.id}/line-items/bulk`, {
       method: "POST",
       headers,
-      body: JSON.stringify({ line_items: lineItems }),
-    }
-  )
+      body: { line_items: lineItems },
+    })
     .then(async () => {
       const fullfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fullfillmentCacheTag)
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
     })
-    .catch(medusaError)
+    .catch((error: any) => {
+      throw new Error(error?.message || "Failed to add items to cart")
+    })
 }
 
 export async function updateLineItem({
@@ -301,7 +295,7 @@ export async function initiatePaymentSession(
   }
 
   return sdk.store.payment
-    .initiatePaymentSession(cart, data, {}, headers)
+    .initiatePaymentSession(cart as unknown as HttpTypes.StoreCart, data, {}, headers)
     .then(async (resp) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
@@ -419,7 +413,7 @@ export async function setShippingAddress(formData: FormData) {
 
 export async function setBillingAddress(formData: FormData) {
   try {
-    const cartId = getCartId()
+    const cartId = await getCartId()
     if (!cartId) {
       throw new Error("No existing cart found when setting billing address")
     }
@@ -450,7 +444,7 @@ export async function setContactDetails(
   formData: FormData
 ) {
   try {
-    const cartId = getCartId()
+    const cartId = await getCartId()
     if (!cartId) {
       throw new Error("No existing cart found when setting contact details")
     }
@@ -506,8 +500,7 @@ export async function placeOrder(
   await removeCartId()
 
   redirect(
-    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
-      response.order.id
+    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${response.order.id
     }`
   )
 }

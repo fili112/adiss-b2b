@@ -36,11 +36,11 @@ const initialFormData: FormData = {
   company_name: "",
   password: "",
   company_address: "",
-  company_city: "",
-  company_state: "",
-  company_zip: "",
-  company_country: "",
-  currency_code: "",
+  company_city: "Addis Ababa",
+  company_state: "Addis Ababa",
+  company_zip: "1000",
+  company_country: "Ethiopia",
+  currency_code: "etb",
 }
 
 const placeholder = ({
@@ -61,7 +61,21 @@ const placeholder = ({
 const Register = ({ setCurrentView, regions }: Props) => {
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
-  const [formData, setFormData] = useState<FormData>(initialFormData)
+  
+  const defaultCountry = 
+    regions
+      .flatMap((r) => r.countries?.map((c) => c?.display_name || c?.name))
+      .find((name) => name?.toLowerCase().includes("ethiopia")) ||
+    regions[0]?.countries?.[0]?.display_name || 
+    "Ethiopia"
+    
+  const defaultCurrency = regions[0]?.currency_code || "etb"
+
+  const [formData, setFormData] = useState<FormData>({
+    ...initialFormData,
+    company_country: defaultCountry,
+    currency_code: defaultCurrency,
+  })
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>

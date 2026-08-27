@@ -1,8 +1,12 @@
 import { HttpTypes } from "@medusajs/types"
 import { NextRequest, NextResponse } from "next/server"
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
-const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL ||
+  process.env.MEDUSA_BACKEND_URL ||
+  "https://addis-b2b.onrender.com"
+const PUBLISHABLE_API_KEY =
+  process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "et"
 
 const regionMapCache = {
@@ -17,40 +21,36 @@ async function getRegionMap(cacheId: string) {
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
-    const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
-      headers: {
-        "x-publishable-api-key": PUBLISHABLE_API_KEY!,
-      },
-      next: {
-        revalidate: 3600,
-        tags: [`regions-${cacheId}`],
-      },
-    }).then(async (response) => {
-      const json = await response.json()
-
-      if (!response.ok) {
-        throw new Error(json.message)
+    try {
+      const headers: Record<string, string> = {}
+      if (PUBLISHABLE_API_KEY) {
+        headers["x-publishable-api-key"] = PUBLISHABLE_API_KEY
       }
 
-      return json
-    })
-
-    if (!regions?.length) {
-      throw new Error(
-        "No regions found. Please set up regions in your Medusa Admin."
-      )
-    }
-
-    // Create a map of country codes to regions.
-    regions.forEach((region: HttpTypes.StoreRegion) => {
-      region.countries?.forEach((c) => {
-        regionMapCache.regionMap.set(c.iso_2 ?? "", region)
+      const response = await fetch(`${BACKEND_URL}/store/regions`, {
+        headers,
+        next: {
+          revalidate: 3600,
+          tags: [`regions-${cacheId}`],
+        },
       })
-    })
 
-    regionMapCache.regionMapUpdated = Date.now()
+      if (response.ok) {
+        const { regions } = await response.json()
+        if (regions?.length) {
+          regions.forEach((region: HttpTypes.StoreRegion) => {
+            region.countries?.forEach((c) => {
+              regionMapCache.regionMap.set(c.iso_2 ?? "", region)
+            })
+          })
+          regionMapCache.regionMapUpdated = Date.now()
+        }
+      }
+    } catch (e) {
+      console.error("Failed to fetch regions in middleware:", e)
+    }
   }
+
 
   return regionMapCache.regionMap
 }

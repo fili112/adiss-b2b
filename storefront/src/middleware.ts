@@ -81,6 +81,8 @@ async function getCountryCode(
       countryCode = DEFAULT_REGION
     } else if (regionMap.keys().next().value) {
       countryCode = regionMap.keys().next().value
+    } else {
+      countryCode = DEFAULT_REGION
     }
 
     return countryCode
@@ -90,6 +92,7 @@ async function getCountryCode(
         "Middleware.ts: Error getting the country code. Did you set up regions in your Medusa Admin and define a NEXT_PUBLIC_MEDUSA_BACKEND_URL environment variable?"
       )
     }
+    return DEFAULT_REGION
   }
 }
 
@@ -124,7 +127,7 @@ export async function middleware(request: NextRequest) {
 
   const regionMap = await getRegionMap(cacheId)
 
-  const countryCode = regionMap && (await getCountryCode(request, regionMap))
+  const countryCode = (regionMap && (await getCountryCode(request, regionMap))) || DEFAULT_REGION
 
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)

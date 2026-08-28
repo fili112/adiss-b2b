@@ -10,14 +10,14 @@ export const ApprovalActions = ({ cart }: { cart: Record<string, any> }) => {
 
   const dialog = usePrompt();
 
-  const awaitingSalesManagerApproval = cart.approvals.find(
+  const awaitingAdminApproval = cart.approvals?.find(
     (approval) =>
-      approval.type === ApprovalType.SALES_MANAGER &&
+      approval.type === ApprovalType.ADMIN &&
       approval.status === ApprovalStatusType.PENDING
   );
 
   const { mutateAsync: updateApproval } = useUpdateApproval(
-    awaitingSalesManagerApproval?.id
+    awaitingAdminApproval?.id
   );
 
   const approveCart = async () => {
@@ -50,7 +50,7 @@ export const ApprovalActions = ({ cart }: { cart: Record<string, any> }) => {
     setIsRejecting(false);
   };
 
-  if (!awaitingSalesManagerApproval) {
+  if (!awaitingAdminApproval) {
     return null;
   }
 

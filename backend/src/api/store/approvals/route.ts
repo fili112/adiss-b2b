@@ -103,6 +103,8 @@ export const GET = async (
 
   res.json({
     carts_with_approvals: cartsWithAdminApprovals,
-    ...metadata,
+    count: cartsWithAdminApprovals.length,
+    limit: req.validatedQuery?.limit ?? 100,
+    offset: req.validatedQuery?.offset ?? 0,
   });
 };

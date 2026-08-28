@@ -80,11 +80,11 @@ export const GET = async (
     fields: ["*"],
     filters: {
       id: approvalIds,
-      type: ApprovalType.ADMIN as any,
+      type: ApprovalType.SALES_MANAGER as any,
     },
   });
 
-  const cartsWithAdminApprovals = company.carts
+  const cartsWithSalesManagerApprovals = company.carts
     .map((cart) => {
       const cartApprovals = approvals.filter(
         (approval) => approval.cart_id === cart?.id
@@ -97,13 +97,13 @@ export const GET = async (
     })
     .filter(Boolean);
 
-  if (!cartsWithAdminApprovals.length) {
+  if (!cartsWithSalesManagerApprovals.length) {
     return res.json({ carts_with_approvals: [], count: 0 });
   }
 
   res.json({
-    carts_with_approvals: cartsWithAdminApprovals,
-    count: cartsWithAdminApprovals.length,
+    carts_with_approvals: cartsWithSalesManagerApprovals,
+    count: cartsWithSalesManagerApprovals.length,
     limit: req.validatedQuery?.limit ?? 100,
     offset: req.validatedQuery?.offset ?? 0,
   });

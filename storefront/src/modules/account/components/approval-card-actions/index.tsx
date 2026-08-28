@@ -29,17 +29,17 @@ const ApprovalCardActions = ({
   const dialog = usePrompt()
   if (!cartWithApprovals?.approvals) return null
 
-  const pendingAdminApproval =
+  const pendingSalesManagerApproval =
     cartWithApprovals.approval_status?.status === ApprovalStatusType.PENDING
       ? cartWithApprovals.approvals?.find(
           (a) =>
-            a?.type === ApprovalType.ADMIN &&
+            a?.type === ApprovalType.SALES_MANAGER &&
             a?.status === ApprovalStatusType.PENDING
         )
       : null
 
   const handleApprove = async () => {
-    if (!pendingAdminApproval) return
+    if (!pendingSalesManagerApproval) return
 
     const confirmed = await dialog({
       title: "Are you sure you want to approve this cart?",
@@ -49,12 +49,12 @@ const ApprovalCardActions = ({
     if (!confirmed) return
 
     setApproving(true)
-    await updateApproval(pendingAdminApproval.id, ApprovalStatusType.APPROVED)
+    await updateApproval(pendingSalesManagerApproval.id, ApprovalStatusType.APPROVED)
     setApproving(false)
   }
 
   const handleReject = async () => {
-    if (!pendingAdminApproval) return
+    if (!pendingSalesManagerApproval) return
 
     const confirmed = await dialog({
       title: "Are you sure you want to reject this cart?",
@@ -64,7 +64,7 @@ const ApprovalCardActions = ({
     if (!confirmed) return
 
     setRejecting(true)
-    await updateApproval(pendingAdminApproval.id, ApprovalStatusType.REJECTED)
+    await updateApproval(pendingSalesManagerApproval.id, ApprovalStatusType.REJECTED)
     setRejecting(false)
   }
 
@@ -77,7 +77,7 @@ const ApprovalCardActions = ({
 
   return (
     <div className="flex gap-x-2">
-      {pendingAdminApproval ? (
+      {pendingSalesManagerApproval ? (
         <>
           {"·"}
           <Button

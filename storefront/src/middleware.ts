@@ -120,7 +120,7 @@ export async function middleware(request: NextRequest) {
 
   let redirectUrl = request.nextUrl.href
 
-  let response = NextResponse.redirect(redirectUrl, 307)
+  let response = NextResponse.next()
 
   // Set a cache id to invalidate the cache for this instance only
   const cacheId = await setCacheId(request, response)
@@ -132,14 +132,14 @@ export async function middleware(request: NextRequest) {
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
-  // check if one of the country codes is in the url
-  if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {
-    return NextResponse.next()
-  }
-
   // check if the url is a static asset
   if (request.nextUrl.pathname.includes(".")) {
     return NextResponse.next()
+  }
+
+  // check if one of the country codes is in the url
+  if (urlHasCountryCode && (!cartId || cartIdCookie)) {
+    return response
   }
 
   const redirectPath =

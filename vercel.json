@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd storefront && yarn build",
+  "outputDirectory": "storefront/.next",
+  "framework": "nextjs"
+}

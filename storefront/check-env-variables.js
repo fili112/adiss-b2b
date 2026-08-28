@@ -10,29 +10,22 @@ const requiredEnvs = [
 ]
 
 function checkEnvVariables() {
-  const missingEnvs = requiredEnvs.filter(function (env) {
-    return !process.env[env.key]
-  })
+  if (!process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+    process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY =
+      "pk_0ba41e361db7a06c4487b2d4f3514131461230a992014264787cbafada3cc411"
+  }
 
-  if (missingEnvs.length > 0) {
-    console.error(
-      c.red.bold("\n🚫 Error: Missing required environment variables\n")
-    )
+  if (!process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL) {
+    process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL =
+      "https://addis-b2b.onrender.com"
+  }
 
-    missingEnvs.forEach(function (env) {
-      console.error(c.yellow(`  ${c.bold(env.key)}`))
-      if (env.description) {
-        console.error(c.dim(`    ${env.description}\n`))
-      }
-    })
+  if (!process.env.NEXT_PUBLIC_DEFAULT_REGION) {
+    process.env.NEXT_PUBLIC_DEFAULT_REGION = "et"
+  }
 
-    console.error(
-      c.yellow(
-        "\nPlease set these variables in your .env file or environment before starting the application.\n"
-      )
-    )
-
-    process.exit(1)
+  if (!process.env.NEXT_PUBLIC_BASE_URL) {
+    process.env.NEXT_PUBLIC_BASE_URL = "https://addis-b2b.vercel.app"
   }
 }
 

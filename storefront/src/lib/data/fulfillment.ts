@@ -26,7 +26,8 @@ export const listCartShippingMethods = async (cartId: string) => {
       }
     )
     .then(({ shipping_options }) => shipping_options)
-    .catch(() => {
+    .catch((err) => {
+      console.error("[fulfillment] listCartShippingMethods failed:", err?.message || err)
       return []
     })
 }

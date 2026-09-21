@@ -72,6 +72,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           onChange={handleChange}
           required
           data-testid="billing-phone-input"
+          colSpan={2}
         />
         <Input
           label="Company name"
@@ -102,35 +103,34 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-postal-code-input"
           colSpan={2}
         />
-        <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
-          <Input
-            label="City"
-            name="billing_address.city"
-            autoComplete="address-level2"
-            value={formData["billing_address.city"]}
-            onChange={handleChange}
-            required
-            data-testid="billing-city-input"
-          />
-          <Input
-            label="Province"
-            name="billing_address.province"
-            autoComplete="address-level1"
-            value={formData["billing_address.province"]}
-            onChange={handleChange}
-            required
-            data-testid="billing-province-input"
-          />
-          <CountrySelect
-            name="billing_address.country_code"
-            autoComplete="country"
-            region={cart?.region}
-            value={formData["billing_address.country_code"]}
-            onChange={handleChange}
-            required
-            data-testid="billing-country-select"
-          />
-        </div>
+        <Input
+          label="City"
+          name="billing_address.city"
+          autoComplete="address-level2"
+          value={formData["billing_address.city"]}
+          onChange={handleChange}
+          required
+          data-testid="billing-city-input"
+        />
+        <Input
+          label="Province"
+          name="billing_address.province"
+          autoComplete="address-level1"
+          value={formData["billing_address.province"]}
+          onChange={handleChange}
+          required
+          data-testid="billing-province-input"
+        />
+        <CountrySelect
+          className="col-span-2"
+          name="billing_address.country_code"
+          autoComplete="country"
+          region={cart?.region}
+          value={formData["billing_address.country_code"]}
+          onChange={handleChange}
+          required
+          data-testid="billing-country-select"
+        />
       </div>
     </>
   )

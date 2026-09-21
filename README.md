@@ -48,6 +48,7 @@ npm run dev
 | **[DEMO_QUICK_REFERENCE.md](DEMO_QUICK_REFERENCE.md)** | One-page cheat sheet | Quick ref |
 | **[B2B_MODEL_EXPLAINED.md](B2B_MODEL_EXPLAINED.md)** | Visual diagrams & explanations | 400+ lines |
 | **[CUSTOMIZATION_SUMMARY.md](CUSTOMIZATION_SUMMARY.md)** | Complete change log | This project |
+| **[mobile/README.md](mobile/README.md)** | React Native (Expo) mobile app guide | Mobile |
 | **[backend/README.md](backend/README.md)** | Technical backend docs | Backend |
 
 ---

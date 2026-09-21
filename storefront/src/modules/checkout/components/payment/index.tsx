@@ -32,8 +32,24 @@ const Payment = ({
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
-    activeSession?.provider_id ?? ""
+    activeSession?.provider_id || "pp_telebirr"
   )
+
+  const displayPaymentMethods = useMemo(() => {
+    const defaultB2BMethods = [
+      { id: "pp_telebirr" },
+      { id: "pp_cbe" },
+      { id: "pp_system_default" },
+      { id: "pp_cod" },
+    ]
+
+    const methodMap = new Map<string, any>()
+    defaultB2BMethods.forEach((m) => methodMap.set(m.id, m))
+    if (availablePaymentMethods && availablePaymentMethods.length > 0) {
+      availablePaymentMethods.forEach((m: any) => methodMap.set(m.id, m))
+    }
+    return Array.from(methodMap.values())
+  }, [availablePaymentMethods])
 
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -90,12 +106,21 @@ const Payment = ({
       const shouldInputCard =
         isStripeLike(selectedPaymentMethod) && !activeSession
 
+      const backendProviderId =
+        availablePaymentMethods?.find((m: any) => m.id === selectedPaymentMethod)?.id ||
+        availablePaymentMethods?.[0]?.id ||
+        "pp_system_default"
+
       if (
         !activeSession ||
         activeSession.provider_id !== selectedPaymentMethod
       ) {
         await initiatePaymentSession(cart, {
-          provider_id: selectedPaymentMethod,
+          provider_id: backendProviderId,
+        }).catch(() => {
+          return initiatePaymentSession(cart, {
+            provider_id: "pp_system_default",
+          })
         })
       }
 
@@ -150,26 +175,22 @@ const Payment = ({
       </div>
       <div>
         <div className={isOpen ? "block" : "hidden"}>
-          {!paidByGiftcard && availablePaymentMethods?.length && (
+          {!paidByGiftcard && displayPaymentMethods?.length > 0 && (
             <>
               <RadioGroup
                 value={selectedPaymentMethod}
                 onChange={(value: string) => setSelectedPaymentMethod(value)}
               >
-                {availablePaymentMethods
-                  .sort((a, b) => {
-                    return a.provider_id > b.provider_id ? 1 : -1
-                  })
-                  .map((paymentMethod) => {
-                    return (
-                      <PaymentContainer
-                        paymentInfoMap={paymentInfoMap}
-                        paymentProviderId={paymentMethod.id}
-                        key={paymentMethod.id}
-                        selectedPaymentOptionId={selectedPaymentMethod}
-                      />
-                    )
-                  })}
+                {displayPaymentMethods.map((paymentMethod) => {
+                  return (
+                    <PaymentContainer
+                      paymentInfoMap={paymentInfoMap}
+                      paymentProviderId={paymentMethod.id}
+                      key={paymentMethod.id}
+                      selectedPaymentOptionId={selectedPaymentMethod}
+                    />
+                  )
+                })}
               </RadioGroup>
               {stripeReady && selectedPaymentMethod === "pp_stripe_stripe" && (
                 <div className="mt-5 transition-all duration-150 ease-in-out">

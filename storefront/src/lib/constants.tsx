@@ -8,8 +8,30 @@ import React from "react"
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
   string,
-  { title: string; icon: React.JSX.Element }
+  { title: string; subtitle?: string; badge?: string; icon: React.JSX.Element }
 > = {
+  pp_telebirr: {
+    title: "Telebirr Mobile Money",
+    subtitle: "Instant payment via Ethio Telecom Telebirr",
+    badge: "Most Popular",
+    icon: <CreditCard />,
+  },
+  pp_cbe: {
+    title: "CBE Birr / Bank Transfer",
+    subtitle: "Commercial Bank of Ethiopia Direct Deposit",
+    icon: <CreditCard />,
+  },
+  pp_system_default: {
+    title: "Corporate Invoice (Net 30)",
+    subtitle: "Official VAT Proforma with 30-day settlement terms",
+    badge: "B2B Credit",
+    icon: <FilePlus />,
+  },
+  pp_cod: {
+    title: "Cash on Delivery",
+    subtitle: "Pay on delivery across Addis Ababa metropolitan area",
+    icon: <CreditCard />,
+  },
   pp_stripe_stripe: {
     title: "Credit card",
     icon: <CreditCard />,
@@ -30,27 +52,17 @@ export const paymentInfoMap: Record<
     title: "PayPal",
     icon: <PayPal />,
   },
-  pp_system_default: {
-    title: "Bank Wire / Corporate Invoice (Net 30)",
-    icon: <FilePlus />,
-  },
-  pp_telebirr_telebirr: {
-    title: "Telebirr (Mobile Money)",
-    icon: <CreditCard />,
-  },
   telebirr: {
-    title: "Telebirr (Mobile Money)",
-    icon: <CreditCard />,
-  },
-  pp_cbe_cbe: {
-    title: "CBE Birr / CBE Bank Transfer",
+    title: "Telebirr Mobile Money",
+    subtitle: "Instant payment via Ethio Telecom Telebirr",
+    badge: "Most Popular",
     icon: <CreditCard />,
   },
   cbe: {
-    title: "CBE Birr / CBE Bank Transfer",
+    title: "CBE Birr / Bank Transfer",
+    subtitle: "Commercial Bank of Ethiopia Direct Deposit",
     icon: <CreditCard />,
   },
-  // Add more payment providers here
 }
 
 // This only checks if it is native stripe or medusa payments for card payments, it ignores the other stripe-based providers

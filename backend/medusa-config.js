@@ -9,8 +9,8 @@ module.exports = defineConfig({
       storeCors: process.env.STORE_CORS || "https://addis-b2b.vercel.app,http://localhost:8000,http://localhost:3000",
       adminCors: process.env.ADMIN_CORS || "https://addis-b2b.onrender.com,http://localhost:7001,http://localhost:9000",
       authCors: process.env.AUTH_CORS || "https://addis-b2b.vercel.app,https://addis-b2b.onrender.com,http://localhost:8000,http://localhost:7001,http://localhost:9000,http://localhost:3000",
-      jwtSecret: process.env.JWT_SECRET || "supersecret",
-      cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+      jwtSecret: process.env.JWT_SECRET,
+      cookieSecret: process.env.COOKIE_SECRET,
     },
   },
   modules: {

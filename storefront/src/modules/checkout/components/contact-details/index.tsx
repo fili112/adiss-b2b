@@ -63,7 +63,7 @@ const ContactDetails = ({
 
     const step =
       requiresApproval &&
-      (!customerIsAdmin || cartApprovalStatus !== ApprovalStatusType.APPROVED)
+        (!customerIsAdmin || cartApprovalStatus !== ApprovalStatusType.APPROVED)
         ? "review"
         : "payment"
 
@@ -115,8 +115,8 @@ const ContactDetails = ({
                   data-testid="submit-address-button"
                 >
                   {requiresApproval &&
-                  cartApprovalStatus !== ApprovalStatusType.APPROVED &&
-                  !customerIsAdmin
+                    cartApprovalStatus !== ApprovalStatusType.APPROVED &&
+                    !customerIsAdmin
                     ? "Review order"
                     : "Next step"}
                 </SubmitButton>

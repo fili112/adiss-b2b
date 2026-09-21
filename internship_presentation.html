@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethiopia B2B E-Commerce Platform - Internship Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0B0F19;
+      --bg-card: #111827;
+      --bg-card-subtle: #1F2937;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(16, 185, 129, 0.3);
+      --primary: #10B981;
+      --primary-light: #34D399;
+      --primary-glow: rgba(16, 185, 129, 0.2);
+      --secondary: #F59E0B;
+      --secondary-glow: rgba(245, 158, 11, 0.2);
+      --accent-blue: #3B82F6;
+      --text-main: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --text-dim: #6B7280;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #030712;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    /* Top Control Bar (Hidden when printing) */
+    .control-bar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .control-btn {
+      background: var(--bg-card-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .control-btn:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--primary);
+      color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .control-btn.primary {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+
+    .control-btn.primary:hover {
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .timer-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--secondary);
+      background: rgba(245, 158, 11, 0.1);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    /* Slide Deck Viewport */
+    .deck-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px 20px;
+    }
+
+    .slide {
+      width: 1440px;
+      max-width: 95vw;
+      height: 810px;
+      max-height: 86vh;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 56px 64px;
+      display: none;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.05);
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Ambient Background Glows */
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      z-index: 2;
+    }
+
+    .slide-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-light);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #FFFFFF 0%, #D1D5DB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .slide-branding {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    .slide-branding span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Slide Content Layouts */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      z-index: 2;
+      overflow-y: auto;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      height: 100%;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      height: 100%;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      height: 100%;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .card.highlight {
+      border-color: var(--border-accent);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(17, 24, 39, 0.8) 100%);
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .card li {
+      margin-bottom: 6px;
+    }
+
+    .card li strong {
+      color: #FFFFFF;
+    }
+
+    /* Cover Slide */
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      max-width: 900px;
+      margin-left: 20px;
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #34D399;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .cover-title {
+      font-size: 50px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 50%, #9CA3AF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 32px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+      width: 100%;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* Architecture Diagram Box */
+    .arch-diagram {
+      background: #0D121F;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 100%;
+    }
+
+    .arch-layer {
+      background: rgba(31, 41, 55, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arch-layer.distributor {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .arch-layer.companies {
+      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .arch-layer.employees {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(245, 158, 11, 0.1);
+    }
+
+    .arch-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .arch-badges {
+      display: flex;
+      gap: 8px;
+    }
+
+    .badge-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #E5E7EB;
+    }
+
+    /* Metrics & Stats */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-box {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary-light);
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Comparison / Flow Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      background: rgba(31, 41, 55, 0.8);
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    .data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: #FFFFFF;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+      color: var(--text-dim);
+      z-index: 2;
+    }
+
+    .speaker-notes-drawer {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      max-width: 90vw;
+      background: #111827;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      z-index: 1001;
+      display: none;
+      animation: slideUp 0.2s ease;
+    }
+
+    .speaker-notes-drawer.open {
+      display: block;
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .notes-content {
+      font-size: 13px;
+      color: #E5E7EB;
+      line-height: 1.5;
+    }
+
+    @keyframes slideUp {
+      from { transform: translate(-50%, 20px); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    /* PRINT TO PDF STYLES - CRITICAL FOR PDF EXPORT */
+    @media print {
+      @page {
+        size: 16in 9in landscape;
+        margin: 0;
+      }
+
+      html, body {
+        background: #0B0F19 !important;
+        color: #F9FAFB !important;
+        width: 16in !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .control-bar, .speaker-notes-drawer {
+        display: none !important;
+      }
+
+      .deck-viewport {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 16in !important;
+        height: auto !important;
+        display: block !important;
+      }
+
+      .slide {
+        display: flex !important;
+        width: 16in !important;
+        height: 9in !important;
+        max-width: 16in !important;
+        max-height: 9in !important;
+        aspect-ratio: auto !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0.8in 1in !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background: #0B0F19 !important;
+        position: relative !important;
+      }
+
+      .slide-body {
+        overflow: visible !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Control Bar -->
+  <div class="control-bar">
+    <button class="control-btn primary" onclick="printDeck()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Export / Print to PDF
+    </button>
+    <button class="control-btn" onclick="prevSlide()">◀ Prev</button>
+    <div class="slide-counter" id="slideCounter">01 / 14</div>
+    <button class="control-btn" onclick="nextSlide()">Next ▶</button>
+    <div class="timer-badge" id="deckTimer">⏱️ 00:00</div>
+    <button class="control-btn" onclick="toggleNotes()">📝 Notes</button>
+    <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+  </div>
+
+  <!-- Viewport -->
+  <div class="deck-viewport">
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active" id="slide-1" data-notes="Welcome professors and colleagues. Today I am presenting my internship project: Ethiopia B2B E-Commerce Platform. Built using Medusa v2, Next.js 14, and React Native Expo, specifically engineered for Ethiopian enterprise wholesale distribution.">
+      <div class="slide-body">
+        <div class="cover-container">
+          <div class="cover-badge">🇪🇹 INTERNSHIP CAPSTONE PRESENTATION • FINAL DEFENSE</div>
+          <h1 class="cover-title">Ethiopia B2B E-Commerce & Wholesale Ecosystem</h1>
+          <p class="cover-subtitle">A multi-tenant enterprise distribution platform engineered for the Ethiopian market with Birr (ETB) economics, multi-tiered company hierarchies, automated order approvals, and cross-platform mobile commerce.</p>
+          <div class="cover-meta">
+            <div class="meta-item">
+              <span class="meta-label">Project Type</span>
+              <span class="meta-value">Full-Stack Software Internship</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tech Stack</span>
+              <span class="meta-value">Medusa v2 • Next.js 14 • React Native Expo</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Target Market</span>
+              <span class="meta-value">Addis Ababa & Nationwide Ethiopia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>B2B Backend, Web Storefront & Mobile App</span>
+        <span>Slide 01 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: EXECUTIVE SUMMARY -->
+    <div class="slide" id="slide-2" data-notes="Here is an overview of what was accomplished during the internship: We took enterprise headless commerce and customized every aspect for Ethiopia: currency, regions, warehouse fulfillment, business customer hierarchies, and mobile ordering.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Context & Overview</span>
+          <h2 class="slide-title">Executive Summary & Project Vision</h2>
+          <p class="slide-subtitle">Bridging the digital gap between wholesale distributors and regional business retailers</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>ARCHITECTURE</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card highlight">
+            <div class="card-icon">🇪🇹</div>
+            <div class="card-title">100% Ethiopian Localization</div>
+            <div class="card-desc">Zero foreign exchange friction. All catalog listings, shipping tariffs, and invoices are denominated strictly in Ethiopian Birr (ETB / Br) with local address and phone formats.</div>
+            <ul>
+              <li><strong>Currency:</strong> ETB sole active currency</li>
+              <li><strong>Logistics:</strong> Addis Ababa Central Hub</li>
+              <li><strong>Coverage:</strong> Addis, Bahir Dar, Hawassa, Dire Dawa</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏢</div>
+            <div class="card-title">Distributor-to-Business Model</div>
+            <div class="card-desc">Unlike standard B2C storefronts, the platform supports multi-seat business accounts with distinct roles, department spending allowances, and budget controls.</div>
+            <ul>
+              <li><strong>Company Onboarding:</strong> Enterprise profiles</li>
+              <li><strong>Employee Hierarchy:</strong> Admins vs Buyers</li>
+              <li><strong>Spending Rules:</strong> Daily, weekly & monthly limits</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-title">Omnichannel Access</div>
+            <div class="card-desc">Comprehensive access for both desktop procurement teams and mobile field agents through responsive Next.js web portal and native React Native Expo mobile app.</div>
+            <ul>
+              <li><strong>Web Storefront:</strong> Next.js 14 SSR & Server Actions</li>
+              <li><strong>Mobile App:</strong> Cross-platform iOS & Android</li>
+              <li><strong>Admin Panel:</strong> Medusa v2 customizable UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Internship Scope: Architecture, Backend, Frontend & Mobile Integration</span>
+        <span>Slide 02 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: PROBLEM STATEMENT -->
+    <div class="slide" id="slide-3" data-notes="Prior to this platform, Ethiopian wholesale trade suffered from 4 major bottlenecks: Forex restrictions, lack of employee spending governance, paper-based quote negotiations, and disconnected field ordering.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Problem Analysis</span>
+          <h2 class="slide-title">Wholesale Commerce Challenges in Ethiopia</h2>
+          <p class="slide-subtitle">Why generic global e-commerce platforms fail in the Ethiopian enterprise context</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>PROBLEM</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-icon">⚠️</div>
+            <div class="card-title">Foreign Currency & Pricing Friction</div>
+            <div class="card-desc">Off-the-shelf platforms default to USD or EUR with forced multi-currency setups, causing accounting mismatches, banking complications, and confusing exchange rates for local buyers.</div>
+            <div style="margin-top: 14px; padding: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; font-size: 12.5px; color: #FCA5A5;">
+              ❌ Result: Local distributors abandon platforms in favor of manual phone calls and spreadsheet invoices.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📉</div>
+            <div class="card-title">Lack of B2B Corporate Governance</div>
+            <div class="card-desc">B2C e-commerce assumes a single credit card holder. It lacks spending limits, purchase requisition approvals, employee permission trees, and multi-tier volume pricing.</div>
+            <div style="margin-top: 14px; padding: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; font-size: 12.5px; color: #FCA5A5;">
+              ❌ Result: Company managers cannot safely delegate purchasing power to regional branch staff.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📑</div>
+            <div class="card-title">Manual Quotation & Negotiation Delays</div>
+            <div class="card-desc">High-volume wholesale trades require custom quote negotiations (RFQ) rather than fixed shelf prices. Without digital RFQ tooling, transactions take days via email and WhatsApp.</div>
+            <div style="margin-top: 14px; padding: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; font-size: 12.5px; color: #FCA5A5;">
+              ❌ Result: Slow quotation cycles and loss of high-value wholesale accounts.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📶</div>
+            <div class="card-title">Mobile Access & Field Readiness</div>
+            <div class="card-desc">Retail store owners in Merkato and regional hubs operate on mobile devices rather than office desktop computers. They need dedicated native apps to check wholesale stock.</div>
+            <div style="margin-top: 14px; padding: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; font-size: 12.5px; color: #FCA5A5;">
+              ❌ Result: Desktop-only web stores lose significant market share in the Ethiopian retail landscape.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Identifying Core Gaps in Ethiopian Wholesale Logistics</span>
+        <span>Slide 03 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: SYSTEM ARCHITECTURE -->
+    <div class="slide" id="slide-4" data-notes="This diagram shows our 4-tier system architecture: Mobile and Web presentation layers communicating via REST API to Medusa v2 core, connected to PostgreSQL and Redis.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Technical Architecture</span>
+          <h2 class="slide-title">End-to-End System Architecture</h2>
+          <p class="slide-subtitle">Modern headless micro-modular design connecting distributor and buyers</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>SYSTEMS</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="arch-diagram">
+          <div class="arch-layer distributor">
+            <div class="arch-title">
+              <span>🖥️</span> Presentation Layer: Web Storefront & Mobile Client
+            </div>
+            <div class="arch-badges">
+              <span class="badge-pill">Next.js 14 SSR</span>
+              <span class="badge-pill">React Native / Expo</span>
+              <span class="badge-pill">TailwindCSS</span>
+              <span class="badge-pill">Medusa JS SDK</span>
+            </div>
+          </div>
+          <div class="arch-layer companies">
+            <div class="arch-title">
+              <span>⚡</span> Headless Commerce API & B2B Modules (Medusa v2)
+            </div>
+            <div class="arch-badges">
+              <span class="badge-pill">Company Hierarchy Module</span>
+              <span class="badge-pill">Approval Workflows</span>
+              <span class="badge-pill">Quote RFQ Engine</span>
+              <span class="badge-pill">Pricing Tiers</span>
+            </div>
+          </div>
+          <div class="arch-layer employees">
+            <div class="arch-title">
+              <span>🗄️</span> Data & Infrastructure Layer
+            </div>
+            <div class="arch-badges">
+              <span class="badge-pill">PostgreSQL 16</span>
+              <span class="badge-pill">Redis Cache</span>
+              <span class="badge-pill">Render Cloud Deployment</span>
+              <span class="badge-pill">Vercel Edge</span>
+            </div>
+          </div>
+          <div class="arch-layer" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2);">
+            <div class="arch-title">
+              <span>🇪🇹</span> Ethiopian Localization Integration
+            </div>
+            <div class="arch-badges">
+              <span class="badge-pill">ETB / Birr Native Currency</span>
+              <span class="badge-pill">+251 Phone Format</span>
+              <span class="badge-pill">Ethiopia-Only Shipping Zones</span>
+              <span class="badge-pill">Addis Warehouse</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Clean Decoupled Architecture for High Scalability</span>
+        <span>Slide 04 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: B2B COMPANY HIERARCHY -->
+    <div class="slide" id="slide-5" data-notes="The core novelty of this platform is the Company Hierarchy. A distributor deals with business entities (like Bole Electronics or Merkato Tech). Inside each company are employees with specific roles and spending limits.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Core B2B Innovation 1</span>
+          <h2 class="slide-title">Distributor-to-Business Hierarchy Model</h2>
+          <p class="slide-subtitle">Granular multi-tenant organizational structure with role-based governance</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>HIERARCHY</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card highlight">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">Business Company Entities</div>
+            <div class="card-desc">Companies are first-class citizens in the database. Each registered company contains its localized Ethiopian tax details, verified business address, assigned pricing tier, and corporate monthly spending budget.</div>
+            <div style="margin-top: 14px;">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Company</th><th>City</th><th>Tier</th><th>Limit (ETB)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Bole Electronics</td><td>Addis Ababa</td><td>Gold</td><td>500,000 / mo</td></tr>
+                  <tr><td>Merkato Tech</td><td>Addis Ababa</td><td>Silver</td><td>300,000 / wk</td></tr>
+                  <tr><td>Hawassa Industrial</td><td>Hawassa</td><td>Platinum</td><td>1,000,000 / mo</td></tr>
+                  <tr><td>Bahir Dar Office</td><td>Bahir Dar</td><td>Bronze</td><td>150,000 / mo</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">👥</div>
+            <div class="card-title">Employee Roles & Spending Limits</div>
+            <div class="card-desc">Employees belong to a company with tailored access privileges and financial caps:</div>
+            <ul>
+              <li><strong>Company Admin (e.g., Alem Tesfaye):</strong>
+                <br>Executive control, creates employee accounts, sets spending caps, approves purchases exceeding staff limits (e.g. 500,000 ETB limit).
+              </li>
+              <li><strong>Purchasing Officer / Buyer (e.g., Kebede Alemu):</strong>
+                <br>Authorized to browse catalog, configure bulk orders, and checkout within allocated budget (e.g. 100,000 ETB limit).
+              </li>
+              <li><strong>Automatic Budget Protection:</strong>
+                <br>If an employee attempts to order above their limit, the checkout does not fail — it seamlessly transitions to <em>"Pending Company Approval"</em>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Enabling Corporate Accountability in Wholesale Procurement</span>
+        <span>Slide 05 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: APPROVAL WORKFLOWS -->
+    <div class="slide" id="slide-6" data-notes="Here we see how order approvals work in practice. The system prevents rogue orders. When an order exceeds an employee's threshold, it goes to the company admin, then optionally to the distributor sales manager.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Core B2B Innovation 2</span>
+          <h2 class="slide-title">Multi-Stage Approval Workflows</h2>
+          <p class="slide-subtitle">Automated checks eliminating unauthorized high-value corporate orders</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>WORKFLOW</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">🛒</div>
+            <div class="card-title">Step 1: Order Initiation</div>
+            <div class="card-desc">A purchasing employee places items into the cart (e.g., 10x Laptops = 1,299,000 ETB).</div>
+            <div style="margin-top: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--secondary);">
+              Threshold Check:<br>
+              Order (1.299M ETB) > Limit (100k ETB)<br>
+              STATUS: REQUIRES APPROVAL
+            </div>
+          </div>
+          <div class="card highlight">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">Step 2: Company Admin Review</div>
+            <div class="card-desc">Company Admin receives an in-app and email alert. They review item line items, department budget, and necessity.</div>
+            <ul>
+              <li><strong>Approve:</strong> Order progresses to next stage</li>
+              <li><strong>Reject:</strong> Order halted with feedback note</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <div class="card-title">Step 3: Distributor Review & Fulfill</div>
+            <div class="card-desc">For large commercial orders, the distributor's sales manager confirms inventory availability at Addis Ababa warehouse.</div>
+            <div style="margin-top: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--primary-light);">
+              STATUS: CONFIRMED<br>
+              Fulfillment dispatched via Ethiopian ground logistics.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Zero Rogue Orders • Audit Trail for Every ETB Transacted</span>
+        <span>Slide 06 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: QUOTE NEGOTIATION ENGINE -->
+    <div class="slide" id="slide-7" data-notes="High-volume buyers rarely buy at retail price. We implemented a complete Request For Quote (RFQ) engine allowing volume negotiation and direct conversion into approved draft orders.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Core B2B Innovation 3</span>
+          <h2 class="slide-title">B2B Quote Negotiation Engine (RFQ)</h2>
+          <p class="slide-subtitle">Digital price negotiation for high-volume enterprise transactions</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>QUOTES</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-icon">💬</div>
+            <div class="card-title">The RFQ Lifecycle</div>
+            <div class="card-desc">Empowers business customers to negotiate custom bulk pricing without leaving the digital platform:</div>
+            <ul>
+              <li><strong>Quote Submission:</strong> Buyer requests a quote for 100x 34" Monitors (List: 5,990,000 ETB) with custom notes: <em>"Ordering for university lab upgrade in Hawassa"</em>.</li>
+              <li><strong>Distributor Counter-Offer:</strong> Sales team reviews inventory in Addis Ababa warehouse and responds with volume discount of 5,400,000 ETB.</li>
+              <li><strong>Acceptance & Conversion:</strong> Customer accepts the counter-offer with one click, automatically generating a binding B2B order with locked prices.</li>
+            </ul>
+          </div>
+          <div class="card highlight">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Technical Advantages of Custom RFQ</div>
+            <div class="card-desc">Built directly into Medusa v2 custom link architecture:</div>
+            <ul>
+              <li><strong>Inventory Reservation:</strong> Temporarily holds stock during active negotiation window to prevent overselling.</li>
+              <li><strong>Audit History:</strong> Preserves full messaging and negotiation timestamp logs between distributor and client.</li>
+              <li><strong>Mobile Ready:</strong> Quotes can be created, negotiated, and accepted directly from the mobile app on iOS and Android.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Accelerating High-Ticket Wholesale Deals from Days to Minutes</span>
+        <span>Slide 07 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: TIERED PRICING & PRODUCTS -->
+    <div class="slide" id="slide-8" data-notes="Here is our dynamic pricing model: Bronze, Silver, Gold, Platinum customer tiers plus automated volume discounts. All configured in Ethiopian Birr.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Monetary Engineering</span>
+          <h2 class="slide-title">Tiered Customer Pricing & Catalog in ETB</h2>
+          <p class="slide-subtitle">Rewarding partner loyalty and volume purchases with dynamic pricing rules</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>PRICING</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-number">🥉 Base</div>
+            <div class="stat-label">Bronze (Standard)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #93C5FD;">🥈 5% OFF</div>
+            <div class="stat-label">Silver Tier</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #FCD34D;">🥇 10% OFF</div>
+            <div class="stat-label">Gold Tier</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" style="color: #F472B6;">💎 15% OFF</div>
+            <div class="stat-label">Platinum VIP</div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Sample Wholesale Hardware Catalog</div>
+            <table class="data-table">
+              <thead><tr><th>Product Item</th><th>Base Price (ETB)</th><th>Gold Tier (10%)</th></tr></thead>
+              <tbody>
+                <tr><td>16" Pro Laptop (512GB)</td><td>129,900 ETB</td><td>116,910 ETB</td></tr>
+                <tr><td>Smartphone (256GB)</td><td>99,900 ETB</td><td>89,910 ETB</td></tr>
+                <tr><td>34" UltraWide Monitor</td><td>59,900 ETB</td><td>53,910 ETB</td></tr>
+                <tr><td>Enterprise Headset</td><td>14,900 ETB</td><td>13,410 ETB</td></tr>
+                <tr><td>HD Conference Webcam</td><td>3,200 ETB</td><td>2,880 ETB</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-title">Automated Volume Tier Breaks</div>
+            <div class="card-desc">Stacked on top of customer loyalty tiers:</div>
+            <ul>
+              <li><strong>1 – 10 Units:</strong> Standard tier price</li>
+              <li><strong>11 – 50 Units:</strong> Additional 3% volume rebate</li>
+              <li><strong>51 – 100 Units:</strong> Additional 5% volume rebate</li>
+              <li><strong>100+ Units:</strong> Additional 8% rebate or instant RFQ trigger</li>
+            </ul>
+            <div style="margin-top: 10px; font-size: 12px; color: var(--primary-light); background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 8px;">
+              ✓ Built-in Currency Symbol Map: Priority symbol "Br" registered for ETB across backend and storefront.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Transparent Localized Economics for Enterprise Wholesale</span>
+        <span>Slide 08 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: MOBILE APP -->
+    <div class="slide" id="slide-9" data-notes="Recognizing that Ethiopian store owners are mobile-first, I developed the Addis B2B Mobile App using React Native and Expo, connected directly to the live Render backend.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Cross-Platform Innovation</span>
+          <h2 class="slide-title">Addis B2B Mobile App (React Native + Expo)</h2>
+          <p class="slide-subtitle">Delivering enterprise procurement to mobile devices across Ethiopia</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>MOBILE</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card highlight">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">Live Cloud Backend Integration</div>
+            <div class="card-desc">Directly communicates with the live Medusa v2 backend deployed on Render using publishable API keys:</div>
+            <ul>
+              <li>Real-time catalog synchronization</li>
+              <li>Live inventory availability checks</li>
+              <li>Instant Birr pricing updates</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛒</div>
+            <div class="card-title">Mobile Wholesale UX</div>
+            <div class="card-desc">Engineered specifically for wholesale batch buyers:</div>
+            <ul>
+              <li>Bulk quantity steppers (10x, 50x, 100x)</li>
+              <li>Multi-variant selectors (Color, Storage, Specs)</li>
+              <li>Dedicated quote negotiation request modal</li>
+              <li>Corporate employee profile & limits preview</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-title">Expo Cross-Platform Engine</div>
+            <div class="card-desc">Single unified TypeScript codebase compiled for:</div>
+            <ul>
+              <li><strong>iOS:</strong> iPhone & iPad optimized</li>
+              <li><strong>Android:</strong> Broad device compatibility across Ethiopian smartphone market</li>
+              <li><strong>QR Code Live Reload:</strong> Instant testing via Expo Go without app store delay</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Bridging Desktop Procurement and Mobile Field Operations</span>
+        <span>Slide 09 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: INTERNSHIP CONTRIBUTIONS -->
+    <div class="slide" id="slide-10" data-notes="Here is a summary of my direct individual contributions during the internship: Customizing backend seed scripts, currency mapping, shipping rules, mobile app development, and documentation.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Internship Deliverables</span>
+          <h2 class="slide-title">Key Contributions & Engineering Tasks</h2>
+          <p class="slide-subtitle">Hands-on software development, localization, and system customization</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>WORK DONE</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <div class="card-title">Backend & Data Engineering</div>
+            <ul>
+              <li><strong>Currency Customization:</strong> Registered Ethiopian Birr (`etb: "Br"`) in `currency-symbol-map.ts` as the primary currency across all admin views.</li>
+              <li><strong>Regional Configuration:</strong> Configured Ethiopia (ET) exclusive region, tax rates, and service zones in `seed.ts`.</li>
+              <li><strong>Logistics Modeling:</strong> Created Addis Ababa Central Warehouse fulfillment point with standardized domestic shipping options (Standard & Express).</li>
+              <li><strong>Database Seeding:</strong> Developed automated seed scripts creating demo Ethiopian enterprises and employee accounts.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-title">Storefront & Mobile Application</div>
+            <ul>
+              <li><strong>Storefront Localization:</strong> Formatted checkout and cart modules to handle ETB formatting and Ethiopian address fields.</li>
+              <li><strong>React Native Mobile Development:</strong> Built the complete `Addis B2B Mobile App` with catalog browsing, variant selectors, and quote request features.</li>
+              <li><strong>DevOps & Deployment:</strong> Configured environment variables and documentation for deploying backend to Render and storefront to Vercel.</li>
+              <li><strong>Technical Documentation:</strong> Authored over 1,500 lines of comprehensive guides (`ETHIOPIA_SETUP.md`, `DEMO_CHECKLIST.md`, `B2B_MODEL_EXPLAINED.md`).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Comprehensive Full-Stack Development Cycle</span>
+        <span>Slide 10 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: TECHNICAL CHALLENGES -->
+    <div class="slide" id="slide-11" data-notes="During the project, I tackled 3 major technical challenges: Medusa v2 Link architecture, state synchronization across mobile and web, and strict single-currency enforcement.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Problem Solving</span>
+          <h2 class="slide-title">Technical Challenges & Solutions</h2>
+          <p class="slide-subtitle">Overcoming architectural and integration hurdles during development</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>SOLUTIONS</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">⚙️</div>
+            <div class="card-title">Challenge 1: Medusa v2 Module Linking</div>
+            <div class="card-desc"><strong>Issue:</strong> Medusa v2 uses a strict micro-kernel link system. Associating Company entities with Customer Accounts and Approval limits required custom link definitions.</div>
+            <div style="margin-top: 10px; font-size: 12.5px; color: var(--primary-light);">
+              <strong>Solution:</strong> Leveraged Medusa's Remote Link engine to establish decoupled joins between `company_id` and `customer_id` without database lockups.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Challenge 2: Approval State Transitions</div>
+            <div class="card-desc"><strong>Issue:</strong> Ensuring carts blocked by spending limits do not get charged before admin authorization, while maintaining inventory reservation.</div>
+            <div style="margin-top: 10px; font-size: 12.5px; color: var(--primary-light);">
+              <strong>Solution:</strong> Created an intermediate `REQUIRES_APPROVAL` state that holds cart line items in draft without triggering payment gateway captures.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">💱</div>
+            <div class="card-title">Challenge 3: Hardcoded Multi-Currency Defaults</div>
+            <div class="card-desc"><strong>Issue:</strong> Default Medusa seed scripts contained multiple foreign currencies (EUR, USD) that appeared in dropdowns.</div>
+            <div style="margin-top: 10px; font-size: 12.5px; color: var(--primary-light);">
+              <strong>Solution:</strong> Refactored the entire `seed.ts` pipeline, deleted non-ETB price sets, and configured ETB as the store's exclusive default currency.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Rigorous Engineering & Architectural Problem Solving</span>
+        <span>Slide 11 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: DEMO SCENARIOS -->
+    <div class="slide" id="slide-12" data-notes="We validated the entire system using 3 live demonstration scenarios: standard employee order under budget, high-value purchase triggering approval, and enterprise quote negotiation.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">System Verification</span>
+          <h2 class="slide-title">Demonstration Scenarios & Validation</h2>
+          <p class="slide-subtitle">Live testing verifying end-to-end reliability and business logic</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>VERIFICATION</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">✅</div>
+            <div class="card-title">Scenario 1: Standard Order</div>
+            <div class="card-desc"><strong>Actor:</strong> Kebede (Purchaser, Bole Electronics)<br><strong>Order:</strong> 2x HD Webcams (6,400 ETB)<br><strong>Limit:</strong> 100,000 ETB</div>
+            <div style="margin-top: 12px; font-size: 13px; color: var(--primary-light);">
+              ✓ Below spending limit<br>
+              ✓ Instant checkout confirmation<br>
+              ✓ Warehouse pick-list generated
+            </div>
+          </div>
+          <div class="card highlight">
+            <div class="card-icon">⚠️</div>
+            <div class="card-title">Scenario 2: Limit Exceeded</div>
+            <div class="card-desc"><strong>Actor:</strong> Kebede (Purchaser, Bole Electronics)<br><strong>Order:</strong> 10x Laptops (1,299,000 ETB)<br><strong>Limit:</strong> 100,000 ETB</div>
+            <div style="margin-top: 12px; font-size: 13px; color: var(--secondary);">
+              ✓ Checkout halts securely<br>
+              ✓ Routed to Admin (Alem Tesfaye)<br>
+              ✓ Admin approves in dashboard
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">💬</div>
+            <div class="card-title">Scenario 3: Volume RFQ</div>
+            <div class="card-desc"><strong>Actor:</strong> Hawassa Industrial Corp<br><strong>Order:</strong> 100x Monitors (List 5.99M ETB)<br><strong>Action:</strong> Request B2B Quote</div>
+            <div style="margin-top: 12px; font-size: 13px; color: #93C5FD;">
+              ✓ Distributor counter-offers 5.4M ETB<br>
+              ✓ Customer accepts via mobile app<br>
+              ✓ Converted to binding draft order
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>100% Pass Rate Across All B2B Enterprise Use Cases</span>
+        <span>Slide 12 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: FUTURE ROADMAP -->
+    <div class="slide" id="slide-13" data-notes="For future expansion, we have identified 3 natural next steps: Telebirr and CBE Birr payment integration, offline sync for rural zones, and ERP integration for inventory.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Looking Ahead</span>
+          <h2 class="slide-title">Future Roadmap & Strategic Enhancements</h2>
+          <p class="slide-subtitle">Scaling the platform to power wholesale trade across the Horn of Africa</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>ROADMAP</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">💳</div>
+            <div class="card-title">Ethiopian FinTech Integration</div>
+            <div class="card-desc">Direct payment plugin integration with Ethiopia's leading mobile money and banking APIs:</div>
+            <ul>
+              <li><strong>Telebirr SuperApp SDK:</strong> Instant B2B merchant settlement</li>
+              <li><strong>CBE Birr & CBE Direct:</strong> Commercial Bank of Ethiopia direct bank transfers</li>
+              <li><strong>Chapa Payment Gateway:</strong> Automated multi-bank card checkout</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📡</div>
+            <div class="card-title">Offline-First Mobile Sync</div>
+            <div class="card-desc">Supporting buyers and sales agents in areas with intermittent internet connectivity:</div>
+            <ul>
+              <li>Local SQLite database on mobile app</li>
+              <li>Offline cart accumulation and order queuing</li>
+              <li>Automatic background sync upon network reconnection</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏭</div>
+            <div class="card-title">Enterprise ERP Connectors</div>
+            <div class="card-desc">Connecting the platform directly to warehouse management and accounting systems:</div>
+            <ul>
+              <li>Bi-directional stock sync with Odoo and SAP</li>
+              <li>Automated Ethiopian Tax Authority (MOR) invoice generation</li>
+              <li>Credit line risk assessment engine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Strategic Evolution into a Complete Enterprise Ecosystem</span>
+        <span>Slide 13 of 14</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: CONCLUSION -->
+    <div class="slide" id="slide-14" data-notes="In conclusion, this internship allowed me to master modern headless commerce, micro-modular backend architecture, cross-platform mobile development, and real-world software localization. Thank you, and I welcome your questions.">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">Final Summary</span>
+          <h2 class="slide-title">Conclusion & Key Learnings</h2>
+          <p class="slide-subtitle">Reflections on technical growth, project outcomes, and defense Q&A</p>
+        </div>
+        <div class="slide-branding">ETHIO-B2B // <span>CONCLUSION</span></div>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card highlight">
+            <div class="card-icon">🎓</div>
+            <div class="card-title">Internship Learning Outcomes</div>
+            <div class="card-desc">Practical skills gained during project execution:</div>
+            <ul>
+              <li><strong>Headless Architecture Mastery:</strong> Deep understanding of modern headless commerce (Medusa v2 micro-services, Next.js 14 SSR, and Expo).</li>
+              <li><strong>Enterprise B2B Domain Knowledge:</strong> Designed complex corporate permission trees, approval chains, and volume-based pricing systems.</li>
+              <li><strong>Localization Engineering:</strong> Overcame assumptions in global commerce engines to deliver a pure Ethiopian Birr (ETB) solution.</li>
+              <li><strong>DevOps & Cloud Delivery:</strong> Full deployment cycle connecting cloud PostgreSQL, Render microservices, and mobile client builds.</li>
+            </ul>
+          </div>
+          <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(180deg, rgba(16, 185, 129, 0.12) 0%, rgba(17, 24, 39, 0.9) 100%); border-color: rgba(16, 185, 129, 0.4);">
+            <div style="font-size: 48px; margin-bottom: 16px;">🇪🇹 👏</div>
+            <div style="font-size: 26px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">Thank You!</div>
+            <div style="font-size: 15px; color: var(--primary-light); font-weight: 600; margin-bottom: 16px;">Questions & Discussion</div>
+            <div style="font-size: 13px; color: var(--text-muted); max-width: 360px; line-height: 1.5;">
+              Ready to demonstrate live admin workflows, mobile app catalog browsing, and quote negotiations.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <span>Ethiopia B2B E-Commerce Project • Internship Final Presentation</span>
+        <span>Slide 14 of 14</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Speaker Notes Floating Drawer -->
+  <div class="speaker-notes-drawer" id="speakerNotesDrawer">
+    <div class="notes-header">
+      <span>🎤 SPEAKER NOTES & TALKING POINTS</span>
+      <span style="cursor: pointer;" onclick="toggleNotes()">✕ Close</span>
+    </div>
+    <div class="notes-content" id="speakerNotesContent">
+      Loading notes...
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 14;
+    let timerSeconds = 0;
+    let timerInterval = null;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((slide, i) => {
+        slide.classList.toggle('active', (i + 1) === currentSlide);
+      });
+
+      const padIndex = String(currentSlide).padStart(2, '0');
+      const padTotal = String(totalSlides).padStart(2, '0');
+      document.getElementById('slideCounter').textContent = `${padIndex} / ${padTotal}`;
+
+      // Update speaker notes
+      const activeSlide = document.getElementById(`slide-${currentSlide}`);
+      const notes = activeSlide ? activeSlide.getAttribute('data-notes') : '';
+      document.getElementById('speakerNotesContent').textContent = notes || "No specific notes for this slide.";
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleNotes() {
+      const drawer = document.getElementById('speakerNotesDrawer');
+      drawer.classList.toggle('open');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn(`Fullscreen error: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function printDeck() {
+      // Show all slides for printing
+      window.print();
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleNotes();
+      } else if (e.key === 'p' || e.key === 'P') {
+        printDeck();
+      }
+    });
+
+    // Timer
+    timerInterval = setInterval(() => {
+      timerSeconds++;
+      const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+      const secs = String(timerSeconds % 60).padStart(2, '0');
+      document.getElementById('deckTimer').textContent = `⏱️ ${mins}:${secs}`;
+    }, 1000);
+
+    // Initial setup
+    showSlide(1);
+  </script>
+</body>
+</html>

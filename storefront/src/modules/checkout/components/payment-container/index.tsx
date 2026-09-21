@@ -10,7 +10,10 @@ type PaymentContainerProps = {
   paymentProviderId: string
   selectedPaymentOptionId: string | null
   disabled?: boolean
-  paymentInfoMap: Record<string, { title: string; icon: JSX.Element }>
+  paymentInfoMap: Record<
+    string,
+    { title: string; subtitle?: string; badge?: string; icon: JSX.Element }
+  >
 }
 
 const PaymentContainer: React.FC<PaymentContainerProps> = ({
@@ -20,6 +23,9 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   disabled = false,
 }) => {
   const isDevelopment = process.env.NODE_ENV === "development"
+  const info = paymentInfoMap[paymentProviderId] || {
+    title: paymentProviderId,
+  }
 
   return (
     <>
@@ -28,25 +34,41 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         value={paymentProviderId}
         disabled={disabled}
         className={clx(
-          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-2",
+          "flex flex-col gap-y-2 text-small-regular cursor-pointer py-3 px-4 rounded-md border transition-all my-1.5",
           {
-            "border-ui-border-interactive":
+            "border-ui-border-interactive bg-ui-bg-subtle-hover shadow-borders-interactive-with-active":
               selectedPaymentOptionId === paymentProviderId,
+            "border-ui-border-base hover:bg-ui-bg-field-hover":
+              selectedPaymentOptionId !== paymentProviderId,
           }
         )}
       >
-        <div className="flex items-center justify-between ">
-          <div className="flex items-center gap-x-4">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-x-3">
             <Radio checked={selectedPaymentOptionId === paymentProviderId} />
-            <Text className="text-base-regular">
-              {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
-            </Text>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-x-2">
+                <Text className="font-medium text-ui-fg-base">
+                  {info.title}
+                </Text>
+                {info.badge && (
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                    {info.badge}
+                  </span>
+                )}
+              </div>
+              {info.subtitle && (
+                <Text className="text-xs text-ui-fg-subtle mt-0.5">
+                  {info.subtitle}
+                </Text>
+              )}
+            </div>
             {isManual(paymentProviderId) && isDevelopment && (
               <PaymentTest className="hidden small:block" />
             )}
           </div>
           <span className="justify-self-end text-ui-fg-base">
-            {paymentInfoMap[paymentProviderId]?.icon}
+            {info.icon}
           </span>
         </div>
         {isManual(paymentProviderId) && isDevelopment && (

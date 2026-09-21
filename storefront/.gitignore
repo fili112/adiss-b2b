@@ -29,8 +29,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files - keep .env.local private but allow .env
-#.env
+# local env files
+.env
 .env.local
 .env.development.local
 .env.test.local

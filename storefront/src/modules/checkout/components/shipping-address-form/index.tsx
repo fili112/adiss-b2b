@@ -131,6 +131,7 @@ const ShippingAddressForm = ({
           onChange={handleChange}
           required
           data-testid="shipping-phone-input"
+          colSpan={2}
         />
         <Input
           label="Company name"
@@ -161,35 +162,33 @@ const ShippingAddressForm = ({
           data-testid="shipping-postal-code-input"
           colSpan={2}
         />
-        <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
-          <Input
-            label="City"
-            name="shipping_address.city"
-            autoComplete="address-level2"
-            value={formData["shipping_address.city"]}
-            onChange={handleChange}
-            required
-            data-testid="shipping-city-input"
-          />
-          <Input
-            label="Province"
-            name="shipping_address.province"
-            autoComplete="address-level1"
-            value={formData["shipping_address.province"]}
-            onChange={handleChange}
-            data-testid="shipping-province-input"
-          />
-          <CountrySelect
-            className="col-span-2"
-            name="shipping_address.country_code"
-            autoComplete="country"
-            region={cart?.region}
-            value={formData["shipping_address.country_code"]}
-            onChange={handleChange}
-            required
-            data-testid="shipping-country-select"
-          />
-        </div>
+        <Input
+          label="City"
+          name="shipping_address.city"
+          autoComplete="address-level2"
+          value={formData["shipping_address.city"]}
+          onChange={handleChange}
+          required
+          data-testid="shipping-city-input"
+        />
+        <Input
+          label="Province"
+          name="shipping_address.province"
+          autoComplete="address-level1"
+          value={formData["shipping_address.province"]}
+          onChange={handleChange}
+          data-testid="shipping-province-input"
+        />
+        <CountrySelect
+          className="col-span-2"
+          name="shipping_address.country_code"
+          autoComplete="country"
+          region={cart?.region}
+          value={formData["shipping_address.country_code"]}
+          onChange={handleChange}
+          required
+          data-testid="shipping-country-select"
+        />
       </div>
     </>
   )

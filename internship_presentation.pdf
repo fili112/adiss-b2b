@@ -1,0 +1,963 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R] /Count 14 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 20 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 21 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 22 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 23 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 24 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 25 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 26 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 27 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 28 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 29 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 30 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 31 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 32 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 33 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+20 0 obj
+<< /Length 1350 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 320 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (INTERNSHIP CAPSTONE PRESENTATION - FINAL DEFENSE) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 01 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 26 Tf 48 480 Td (Ethiopia B2B E-Commerce Platform) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 14 Tf 48 450 Td (Enterprise Wholesale Distribution Ecosystem Engineered for Ethiopia) Tj ET
+0.15 0.22 0.35 rg
+48 435 746 1.5 re f
+0.07 0.10 0.16 rg
+48 100 746 315 re f
+0.15 0.22 0.35 RG 1 w
+48 100 746 315 re S
+0.06 0.72 0.50 rg
+BT /F2 14 Tf 72 380 Td (Project Scope & Technical Foundation) Tj ET
+0.90 0.92 0.96 rg
+BT /F1 12 Tf 72 340 Td (- Technology Stack: Medusa v2 Headless Engine, Next.js 14 SSR, React Native Expo) Tj ET
+BT /F1 12 Tf 72 305 Td (- Target Market: Addis Ababa Central Warehouse & Nationwide Ethiopian Distribution) Tj ET
+BT /F1 12 Tf 72 270 Td (- Core Currency: Ethiopian Birr (ETB / Br) - zero foreign exchange conversion friction) Tj ET
+BT /F1 12 Tf 72 235 Td (- B2B Governance: Corporate customer accounts, buyer limits, and approval workflows) Tj ET
+BT /F1 12 Tf 72 200 Td (- Omnichannel Delivery: Responsive web procurement portal + iOS & Android mobile app) Tj ET
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 72 150 Td (Presenter: Software Engineering Intern | Academic & Supervisor Evaluation) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense - Medusa v2 / Next.js / Expo) Tj ET
+BT /F2 9 Tf 712 24 Td (Addis Ababa, Ethiopia) Tj ET
+Q
+endstream
+endobj
+21 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (CONTEXT & OVERVIEW) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 02 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Executive Summary & Project Vision) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Bridging the Digital Divide for Wholesale Commerce Across Ethiopia) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 360 365 re f
+0.15 0.22 0.35 RG 1 w
+48 95 360 365 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 64 430 Td (Core Pillars of the Platform) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 64 395 Td (* 100% Ethiopian Localization: ETB currency, +251 phone,) Tj ET
+BT /F1 11 Tf 64 380 Td (  Addis Ababa warehouse, and domestic shipping routes.) Tj ET
+BT /F1 11 Tf 64 345 Td (* Multi-Seat Corporate Structure: Business onboarding,) Tj ET
+BT /F1 11 Tf 64 330 Td (  employee permissions, and spending limit enforcement.) Tj ET
+BT /F1 11 Tf 64 295 Td (* Request For Quote (RFQ): Digital volume negotiation) Tj ET
+BT /F1 11 Tf 64 280 Td (  with automated draft order generation.) Tj ET
+BT /F1 11 Tf 64 245 Td (* Tiered Commercial Pricing: Bronze, Silver, Gold, and) Tj ET
+BT /F1 11 Tf 64 230 Td (  Platinum discount brackets rewarding loyal buyers.) Tj ET
+BT /F1 11 Tf 64 195 Td (* Omnichannel Architecture: Web and native mobile apps.) Tj ET
+0.08 0.12 0.20 rg
+432 345 362 115 re f
+0.20 0.30 0.45 RG 1 w
+432 345 362 115 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 448 430 Td (Zero Currency Friction) Tj ET
+0.80 0.84 0.90 rg
+BT /F1 10.5 Tf 448 405 Td (All listings, order lines, and invoices are strictly in ETB.) Tj ET
+BT /F1 10.5 Tf 448 390 Td (Eliminated USD foreign exchange and banking conversion errors.) Tj ET
+0.08 0.12 0.20 rg
+432 220 362 115 re f
+0.20 0.30 0.45 RG 1 w
+432 220 362 115 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 448 305 Td (Enterprise Governance) Tj ET
+0.80 0.84 0.90 rg
+BT /F1 10.5 Tf 448 280 Td (Budget controls, spending caps, and dual-layer approvals) Tj ET
+BT /F1 10.5 Tf 448 265 Td (ensure zero unapproved expenditure for enterprise customers.) Tj ET
+0.08 0.12 0.20 rg
+432 95 362 115 re f
+0.20 0.30 0.45 RG 1 w
+432 95 362 115 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 448 180 Td (Cloud Deployment) Tj ET
+0.80 0.84 0.90 rg
+BT /F1 10.5 Tf 448 155 Td (Live Medusa backend on Render, PostgreSQL database,) Tj ET
+BT /F1 10.5 Tf 448 140 Td (Next.js web portal on Vercel, and cross-platform Expo mobile app.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 02 of 14) Tj ET
+Q
+endstream
+endobj
+22 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (PROBLEM ANALYSIS) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 03 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Wholesale Commerce Challenges in Ethiopia) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Why Generic Global E-Commerce Platforms Fail in the Ethiopian Market) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 280 360 180 re f
+0.15 0.22 0.35 RG 1 w
+48 280 360 180 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 64 430 Td (1. Foreign Currency & FX Overhead) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 400 Td (- Standard software assumes USD or EUR with forced forex.) Tj ET
+BT /F1 10.5 Tf 64 380 Td (- Severe Ethiopian FX regulations make USD pricing illegal) Tj ET
+BT /F1 10.5 Tf 64 365 Td (  and completely impractical for domestic B2B trade.) Tj ET
+BT /F1 10.5 Tf 64 340 Td (- Causes massive accounting reconciliations and failures.) Tj ET
+0.07 0.10 0.16 rg
+432 280 362 180 re f
+0.15 0.22 0.35 RG 1 w
+432 280 362 180 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 448 430 Td (2. Absence of Corporate Governance) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 448 400 Td (- B2C carts assume individual retail credit cards.) Tj ET
+BT /F1 10.5 Tf 448 380 Td (- No concept of employee spending limits or branch budgets.) Tj ET
+BT /F1 10.5 Tf 448 365 Td (- Company owners cannot delegate purchasing authority) Tj ET
+BT /F1 10.5 Tf 448 350 Td (  without risking unauthorized corporate expenses.) Tj ET
+0.07 0.10 0.16 rg
+48 85 360 180 re f
+0.15 0.22 0.35 RG 1 w
+48 85 360 180 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 64 235 Td (3. Friction in Bulk Price Negotiation) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 205 Td (- Wholesale orders require volume discounting (RFQ).) Tj ET
+BT /F1 10.5 Tf 64 185 Td (- Offline negotiation via phone calls or WhatsApp takes days.) Tj ET
+BT /F1 10.5 Tf 64 165 Td (- Leads to miscommunication, lost quotes, and inventory) Tj ET
+BT /F1 10.5 Tf 64 150 Td (  conflicts during long manual negotiation cycles.) Tj ET
+0.07 0.10 0.16 rg
+432 85 362 180 re f
+0.15 0.22 0.35 RG 1 w
+432 85 362 180 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 448 235 Td (4. Desktop vs Field Mobile Disconnect) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 448 205 Td (- Ethiopian merchants (Merkato, Bole) operate on smartphones.) Tj ET
+BT /F1 10.5 Tf 448 185 Td (- Traditional desktop web stores fail to engage mobile buyers.) Tj ET
+BT /F1 10.5 Tf 448 165 Td (- Need native cross-platform mobile apps with fast catalog) Tj ET
+BT /F1 10.5 Tf 448 150 Td (  search, offline resilience, and instant quote submission.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 03 of 14) Tj ET
+Q
+endstream
+endobj
+23 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (TECHNICAL ARCHITECTURE) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 04 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (End-to-End System Architecture) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Decoupled Headless Micro-Modular Stack for Maximum Reliability) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.08 0.12 0.20 rg
+48 375 746 90 re f
+0.06 0.72 0.50 RG 1 w
+48 375 746 90 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 68 440 Td (Tier 1: Client & Presentation Layer) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 415 Td (- Next.js 14 SSR Web Storefront: High-speed server rendering, corporate login, checkout.) Tj ET
+BT /F1 11 Tf 68 395 Td (- Addis B2B Mobile App (React Native Expo): Native iOS & Android, bulk steppers, mobile RFQ.) Tj ET
+0.08 0.12 0.20 rg
+48 265 746 95 re f
+0.20 0.30 0.45 RG 1 w
+48 265 746 95 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 68 330 Td (Tier 2: Business Logic & Headless Engine (Medusa v2)) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 305 Td (- Custom Company Module: Hierarchical company profiles, spending rules, employee limits.) Tj ET
+BT /F1 11 Tf 68 285 Td (- Approval Engine: Cart interception workflows, email alerts, multi-stage approval states.) Tj ET
+0.08 0.12 0.20 rg
+48 155 746 95 re f
+0.20 0.30 0.45 RG 1 w
+48 155 746 95 re S
+0.35 0.65 0.95 rg
+BT /F2 13 Tf 68 220 Td (Tier 3: Database & Cache Infrastructure) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 195 Td (- PostgreSQL 16: Relational schema storing companies, employees, orders, and quotes.) Tj ET
+BT /F1 11 Tf 68 175 Td (- Redis Pub/Sub: Real-time event broadcasting and high-performance session caching.) Tj ET
+0.08 0.12 0.20 rg
+48 65 746 75 re f
+0.06 0.72 0.50 RG 1 w
+48 65 746 75 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 68 115 Td (Tier 4: Ethiopian Localization & Cloud Deployment) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 68 95 Td (- Deployed on Render Cloud with automated CI/CD and secure PostgreSQL environment.) Tj ET
+BT /F1 10.5 Tf 68 80 Td (- Sole currency: ETB (Birr), Addis Ababa central warehouse, Ethiopian domestic courier rates.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 04 of 14) Tj ET
+Q
+endstream
+endobj
+24 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (CORE B2B INNOVATION 1) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 05 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Distributor-to-Business Hierarchy Model) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Multi-Tenant Organizational Structure with Fine-Grained Spending Governance) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 360 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 360 365 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 64 430 Td (Demo Business Customers in Ethiopia) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (1. Bole Electronics Retail (Addis Ababa)) Tj ET
+BT /F1 10 Tf 64 380 Td (   - Tier: Gold (10% Discount)) Tj ET
+BT /F1 10 Tf 64 365 Td (   - Spending Limit: 500,000 ETB / month) Tj ET
+BT /F1 10.5 Tf 64 335 Td (2. Merkato Tech Solutions (Addis Ababa)) Tj ET
+BT /F1 10 Tf 64 320 Td (   - Tier: Silver (5% Discount)) Tj ET
+BT /F1 10 Tf 64 305 Td (   - Spending Limit: 300,000 ETB / week) Tj ET
+BT /F1 10.5 Tf 64 275 Td (3. Hawassa Industrial Corp (Hawassa)) Tj ET
+BT /F1 10 Tf 64 260 Td (   - Tier: Platinum VIP (15% Discount)) Tj ET
+BT /F1 10 Tf 64 245 Td (   - Spending Limit: 1,000,000 ETB / month) Tj ET
+BT /F1 10.5 Tf 64 215 Td (4. Bahir Dar Office Supplies (Bahir Dar)) Tj ET
+BT /F1 10 Tf 64 200 Td (   - Tier: Bronze (Standard Pricing)) Tj ET
+BT /F1 10 Tf 64 185 Td (   - Spending Limit: 150,000 ETB / month) Tj ET
+BT /F3 10 Tf 64 135 Td (* Seed script automatically registers all demo companies.) Tj ET
+0.07 0.10 0.16 rg
+432 95 362 365 re f
+0.20 0.30 0.45 RG 1 w
+432 95 362 365 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 448 430 Td (Employee Role Permissions & Limits) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 448 395 Td (Company Admin (e.g., Alem Tesfaye):) Tj ET
+BT /F1 10 Tf 448 375 Td (- Full organizational visibility and employee onboarding.) Tj ET
+BT /F1 10 Tf 448 360 Td (- Spending Limit: 500,000 ETB/month.) Tj ET
+BT /F1 10 Tf 448 345 Td (- Authorizes or denies pending purchase requests.) Tj ET
+BT /F1 11 Tf 448 310 Td (Purchasing Officer / Buyer (e.g., Kebede Alemu):) Tj ET
+BT /F1 10 Tf 448 290 Td (- Browses verified wholesale catalog with Birr pricing.) Tj ET
+BT /F1 10 Tf 448 275 Td (- Spending Limit: 100,000 ETB/month.) Tj ET
+BT /F1 10 Tf 448 260 Td (- Can place direct orders within limit; triggers approval above.) Tj ET
+0.08 0.12 0.20 rg
+448 120 330 90 re f
+0.06 0.72 0.50 RG 1 w
+448 120 330 90 re S
+0.06 0.72 0.50 rg
+BT /F2 11 Tf 460 185 Td (Flexible Limit Windows) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10 Tf 460 165 Td (The system supports 4 flexible reset schedules:) Tj ET
+BT /F1 10 Tf 460 145 Td (Daily, Weekly, Monthly, or Yearly spending caps.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 05 of 14) Tj ET
+Q
+endstream
+endobj
+25 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (CORE B2B INNOVATION 2) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 06 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Multi-Stage Approval Workflows) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Automated Spending Controls Eliminating Unauthorized Corporate Expenses) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.08 0.12 0.20 rg
+48 340 746 120 re f
+0.20 0.30 0.45 RG 1 w
+48 340 746 120 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 68 430 Td (Step 1: Order Creation & Limit Verification) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 405 Td (- Employee Kebede Alemu adds 10x Laptops to cart (Total: 1,299,000 ETB).) Tj ET
+BT /F1 11 Tf 68 385 Td (- System evaluates active spending rule: 1,299,000 ETB exceeds employee limit of 100,000 ETB.) Tj ET
+BT /F1 11 Tf 68 365 Td (- STATUS: Automatically transitions cart to "REQUIRES_APPROVAL" without debiting customer.) Tj ET
+0.08 0.12 0.20 rg
+48 200 746 120 re f
+0.06 0.72 0.50 RG 1 w
+48 200 746 120 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 68 290 Td (Step 2: Company Admin Approval Gate) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 265 Td (- Company Admin (Alem Tesfaye) receives real-time notification with order summary and justification.) Tj ET
+BT /F1 11 Tf 68 245 Td (- Admin reviews department budget allocation and necessity in the dashboard.) Tj ET
+BT /F1 11 Tf 68 225 Td (- One-click decision: Approve (advances order) OR Reject (cancels order with explanatory note).) Tj ET
+0.08 0.12 0.20 rg
+48 60 746 120 re f
+0.35 0.65 0.95 RG 1 w
+48 60 746 120 re S
+0.35 0.65 0.95 rg
+BT /F2 13 Tf 68 150 Td (Step 3: Distributor Commercial Confirmation & Warehouse Pick) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 68 125 Td (- For high-volume enterprise orders, distributor sales team performs stock allocation check.) Tj ET
+BT /F1 11 Tf 68 105 Td (- Addis Ababa warehouse generates domestic pick-list and dispatches ground freight.) Tj ET
+BT /F1 11 Tf 68 85 Td (- Complete audit trail recorded: timestamps, approver identity, and invoice in ETB.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 06 of 14) Tj ET
+Q
+endstream
+endobj
+26 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (CORE B2B INNOVATION 3) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 07 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (B2B Quote Negotiation Engine (RFQ)) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Empowering High-Volume Price Negotiation for Enterprise Hardware Deals) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 360 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 360 365 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 64 430 Td (RFQ Negotiation Lifecycle) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 64 395 Td (1. Request Submission:) Tj ET
+BT /F1 10.5 Tf 64 380 Td (   Corporate buyer requests custom rate for 100x monitors) Tj ET
+BT /F1 10.5 Tf 64 365 Td (   (Catalog list price: 5,990,000 ETB).) Tj ET
+BT /F1 11 Tf 64 330 Td (2. Distributor Review:) Tj ET
+BT /F1 10.5 Tf 64 315 Td (   Distributor evaluates stock in Addis Ababa warehouse) Tj ET
+BT /F1 10.5 Tf 64 300 Td (   and issues counter-offer of 5,400,000 ETB (590k savings).) Tj ET
+BT /F1 11 Tf 64 265 Td (3. Acceptance & Order Conversion:) Tj ET
+BT /F1 10.5 Tf 64 250 Td (   Buyer accepts counter-offer via portal or mobile app;) Tj ET
+BT /F1 10.5 Tf 64 235 Td (   system locks quoted price and generates draft order.) Tj ET
+BT /F1 11 Tf 64 200 Td (4. Fulfillment:) Tj ET
+BT /F1 10.5 Tf 64 185 Td (   Invoice generated in ETB; goods dispatched to client.) Tj ET
+0.07 0.10 0.16 rg
+432 95 362 365 re f
+0.20 0.30 0.45 RG 1 w
+432 95 362 365 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 448 430 Td (Engineering Advantages of Custom RFQ) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 448 395 Td (- Inventory Reservation Lock:) Tj ET
+BT /F1 10.5 Tf 448 375 Td (  Prevents overselling by placing soft lock on warehouse stock) Tj ET
+BT /F1 10.5 Tf 448 360 Td (  during active negotiation window.) Tj ET
+BT /F1 11 Tf 448 325 Td (- Full Audit Trail & Messaging:) Tj ET
+BT /F1 10.5 Tf 448 305 Td (  Preserves complete timestamped dialogue between distributor) Tj ET
+BT /F1 10.5 Tf 448 290 Td (  and client for procurement compliance.) Tj ET
+BT /F1 11 Tf 448 255 Td (- Mobile Native Experience:) Tj ET
+BT /F1 10.5 Tf 448 235 Td (  Buyers can submit, inspect, and approve quote offers directly) Tj ET
+BT /F1 10.5 Tf 448 220 Td (  from their smartphones via Addis B2B Mobile App.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 07 of 14) Tj ET
+Q
+endstream
+endobj
+27 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (MONETARY ENGINEERING) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 08 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Tiered Customer Pricing & Catalog in ETB) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Rewarding Enterprise Loyalty & Volume Purchases with Transparent Birr Pricing) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.08 0.12 0.20 rg
+48 385 175 75 re f
+0.08 0.12 0.20 rg
+238 385 175 75 re f
+0.08 0.12 0.20 rg
+428 385 175 75 re f
+0.08 0.12 0.20 rg
+618 385 175 75 re f
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 65 435 Td (Bronze Tier) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 65 410 Td (Standard Base Price) Tj ET
+0.35 0.65 0.95 rg
+BT /F2 13 Tf 255 435 Td (Silver Tier) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 255 410 Td (5% Commercial Discount) Tj ET
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 445 435 Td (Gold Tier) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 445 410 Td (10% Commercial Discount) Tj ET
+0.95 0.40 0.70 rg
+BT /F2 13 Tf 635 435 Td (Platinum VIP) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 635 410 Td (15% Commercial Discount) Tj ET
+0.07 0.10 0.16 rg
+48 85 360 280 re f
+0.15 0.22 0.35 RG 1 w
+48 85 360 280 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 64 340 Td (Sample Hardware Catalog (ETB)) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 310 Td (- 16" Pro Laptop: 129,900 ETB (Gold: 116,910 ETB)) Tj ET
+BT /F1 10.5 Tf 64 285 Td (- Smartphone (256GB): 99,900 ETB (Gold: 89,910 ETB)) Tj ET
+BT /F1 10.5 Tf 64 260 Td (- 34" Curved Monitor: 59,900 ETB (Gold: 53,910 ETB)) Tj ET
+BT /F1 10.5 Tf 64 235 Td (- Enterprise Headset: 14,900 ETB (Gold: 13,410 ETB)) Tj ET
+BT /F1 10.5 Tf 64 210 Td (- HD Conference Webcam: 3,200 ETB (Gold: 2,880 ETB)) Tj ET
+BT /F1 10.5 Tf 64 185 Td (- Wireless Desktop Keyboard: 9,900 ETB (Gold: 8,910 ETB)) Tj ET
+0.07 0.10 0.16 rg
+432 85 362 280 re f
+0.15 0.22 0.35 RG 1 w
+432 85 362 280 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 448 340 Td (Automated Bulk Quantity Breaks) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 448 310 Td (Stacked on top of customer tiers:) Tj ET
+BT /F1 10.5 Tf 448 285 Td (- 1 - 10 Units: Standard customer tier pricing.) Tj ET
+BT /F1 10.5 Tf 448 260 Td (- 11 - 50 Units: Additional 3% volume rebate.) Tj ET
+BT /F1 10.5 Tf 448 235 Td (- 51 - 100 Units: Additional 5% volume rebate.) Tj ET
+BT /F1 10.5 Tf 448 210 Td (- 100+ Units: Additional 8% rebate or instant RFQ trigger.) Tj ET
+BT /F3 10 Tf 448 160 Td (* Currency Symbol Map prioritized "Br" for ETB across the app.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 08 of 14) Tj ET
+Q
+endstream
+endobj
+28 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 240 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (CROSS-PLATFORM INNOVATION) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 09 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Addis B2B Mobile App (React Native + Expo)) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Delivering Enterprise Wholesale Commerce to Mobile Devices Across Ethiopia) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 235 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 235 365 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 64 430 Td (Live Cloud Backend) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (- Directly connects to live) Tj ET
+BT /F1 10.5 Tf 64 380 Td (  Render Medusa v2 backend) Tj ET
+BT /F1 10.5 Tf 64 365 Td (  via publishable store keys.) Tj ET
+BT /F1 10.5 Tf 64 335 Td (- Real-time stock queries) Tj ET
+BT /F1 10.5 Tf 64 320 Td (  from Addis Ababa warehouse.) Tj ET
+BT /F1 10.5 Tf 64 290 Td (- Dynamic Birr prices) Tj ET
+BT /F1 10.5 Tf 64 275 Td (  with customer group tiers.) Tj ET
+0.07 0.10 0.16 rg
+303 95 235 365 re f
+0.20 0.30 0.45 RG 1 w
+303 95 235 365 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 319 430 Td (Mobile Wholesale UX) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 319 395 Td (- Bulk quantity steppers) Tj ET
+BT /F1 10.5 Tf 319 380 Td (  for wholesale batches) Tj ET
+BT /F1 10.5 Tf 319 365 Td (  (10x, 50x, 100x).) Tj ET
+BT /F1 10.5 Tf 319 335 Td (- Multi-variant selector:) Tj ET
+BT /F1 10.5 Tf 319 320 Td (  RAM, storage, colors.) Tj ET
+BT /F1 10.5 Tf 319 290 Td (- Dedicated Request Quote) Tj ET
+BT /F1 10.5 Tf 319 275 Td (  modal for field agents.) Tj ET
+0.07 0.10 0.16 rg
+558 95 235 365 re f
+0.35 0.65 0.95 RG 1 w
+558 95 235 365 re S
+0.35 0.65 0.95 rg
+BT /F2 12 Tf 574 430 Td (Cross-Platform Expo) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 574 395 Td (- Single TypeScript codebase) Tj ET
+BT /F1 10.5 Tf 574 380 Td (  running on iOS & Android.) Tj ET
+BT /F1 10.5 Tf 574 350 Td (- Instant testing via QR) Tj ET
+BT /F1 10.5 Tf 574 335 Td (  code in free Expo Go app.) Tj ET
+BT /F1 10.5 Tf 574 305 Td (- Corporate employee login) Tj ET
+BT /F1 10.5 Tf 574 290 Td (  displaying budget limits.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 09 of 14) Tj ET
+Q
+endstream
+endobj
+29 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 230 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (INTERNSHIP DELIVERABLES) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 10 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Key Contributions & Engineering Tasks) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Hands-on Software Development, Architectural Customization, and Documentation) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 360 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 360 365 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 64 430 Td (Backend & Data Engineering) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (- Currency Map Customization:) Tj ET
+BT /F1 10 Tf 64 380 Td (  Registered 'etb: "Br"' in currency-symbol-map.ts as priority.) Tj ET
+BT /F1 10.5 Tf 64 350 Td (- Database Seed Pipeline:) Tj ET
+BT /F1 10 Tf 64 335 Td (  Refactored seed.ts to purge EUR/USD and establish ETB.) Tj ET
+BT /F1 10.5 Tf 64 305 Td (- Geographic & Warehouse Setup:) Tj ET
+BT /F1 10 Tf 64 290 Td (  Configured Ethiopia-only region and Addis Ababa warehouse.) Tj ET
+BT /F1 10.5 Tf 64 260 Td (- Demo Company Automation:) Tj ET
+BT /F1 10 Tf 64 245 Td (  Built automated script seeding 4 Ethiopian businesses & staff.) Tj ET
+0.07 0.10 0.16 rg
+432 95 362 365 re f
+0.20 0.30 0.45 RG 1 w
+432 95 362 365 re S
+0.96 0.72 0.20 rg
+BT /F2 13 Tf 448 430 Td (Storefront, Mobile & Documentation) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 448 395 Td (- Addis B2B Mobile App:) Tj ET
+BT /F1 10 Tf 448 380 Td (  Engineered React Native mobile client connecting to Render API.) Tj ET
+BT /F1 10.5 Tf 448 350 Td (- Storefront Localization:) Tj ET
+BT /F1 10 Tf 448 335 Td (  Formatted Next.js checkout for Ethiopian phone & addresses.) Tj ET
+BT /F1 10.5 Tf 448 305 Td (- Cloud Deployment Configurations:) Tj ET
+BT /F1 10 Tf 448 290 Td (  Documented Vercel and Render deployment procedures.) Tj ET
+BT /F1 10.5 Tf 448 260 Td (- 1,500+ Lines of Technical Documentation:) Tj ET
+BT /F1 10 Tf 448 245 Td (  Authored ETHIOPIA_SETUP.md, DEMO_CHECKLIST.md, and visual models.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 10 of 14) Tj ET
+Q
+endstream
+endobj
+30 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (PROBLEM SOLVING) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 11 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Technical Challenges & Solutions) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Overcoming Architectural, Modeling, and Integration Obstacles) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.08 0.12 0.20 rg
+48 345 746 115 re f
+0.20 0.30 0.45 RG 1 w
+48 345 746 115 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 68 435 Td (Challenge 1: Medusa v2 Micro-Kernel Remote Link Architecture) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 68 410 Td (- Problem: Joining Company entities to Customer Accounts without altering core tables.) Tj ET
+BT /F1 10.5 Tf 68 395 Td (- Solution: Utilized Medusa's Remote Link engine to establish loosely coupled virtual joins) Tj ET
+BT /F1 10.5 Tf 68 380 Td (  between company_id and customer_id, maintaining architectural modularity.) Tj ET
+0.08 0.12 0.20 rg
+48 220 746 115 re f
+0.06 0.72 0.50 RG 1 w
+48 220 746 115 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 68 310 Td (Challenge 2: Approval State Transitions & Cart Reservation) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 68 285 Td (- Problem: Orders exceeding employee budgets risk dropping cart state or triggering premature charges.) Tj ET
+BT /F1 10.5 Tf 68 270 Td (- Solution: Created an intermediate 'REQUIRES_APPROVAL' status holding items in soft reserve) Tj ET
+BT /F1 10.5 Tf 68 255 Td (  without executing payment gateway capture until corporate admin signs off.) Tj ET
+0.08 0.12 0.20 rg
+48 95 746 115 re f
+0.35 0.65 0.95 RG 1 w
+48 95 746 115 re S
+0.35 0.65 0.95 rg
+BT /F2 12 Tf 68 185 Td (Challenge 3: Multi-Currency Artifacts in Open-Source Core) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 68 160 Td (- Problem: Open-source commerce templates default to hardcoded USD/EUR price matrices.) Tj ET
+BT /F1 10.5 Tf 68 145 Td (- Solution: Re-engineered seed scripts, purged non-ETB prices, and established strict) Tj ET
+BT /F1 10.5 Tf 68 130 Td (  single-currency validation rules preventing foreign currency insertion.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 11 of 14) Tj ET
+Q
+endstream
+endobj
+31 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (SYSTEM VERIFICATION) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 12 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Demonstration Scenarios & Validation) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Empirical Testing Across Routine, Budget-Exceeded, and Wholesale RFQ Use Cases) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 235 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 235 365 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 64 430 Td (1. Standard Checkout) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (Actor: Buyer Kebede) Tj ET
+BT /F1 10 Tf 64 380 Td (Company: Bole Electronics) Tj ET
+BT /F1 10.5 Tf 64 350 Td (Order: 2x HD Webcams) Tj ET
+BT /F1 10 Tf 64 335 Td (Total: 6,400 ETB) Tj ET
+BT /F1 10 Tf 64 320 Td (Limit: 100,000 ETB) Tj ET
+0.06 0.72 0.50 rg
+BT /F2 11 Tf 64 275 Td (Result: PASSED) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10 Tf 64 255 Td (- Instant checkout success.) Tj ET
+BT /F1 10 Tf 64 240 Td (- Warehouse notified.) Tj ET
+0.07 0.10 0.16 rg
+303 95 235 365 re f
+0.20 0.30 0.45 RG 1 w
+303 95 235 365 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 319 430 Td (2. Spending Limit Halt) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 319 395 Td (Actor: Buyer Kebede) Tj ET
+BT /F1 10 Tf 319 380 Td (Company: Bole Electronics) Tj ET
+BT /F1 10.5 Tf 319 350 Td (Order: 10x Pro Laptops) Tj ET
+BT /F1 10 Tf 319 335 Td (Total: 1,299,000 ETB) Tj ET
+BT /F1 10 Tf 319 320 Td (Limit: 100,000 ETB) Tj ET
+0.96 0.72 0.20 rg
+BT /F2 11 Tf 319 275 Td (Result: PASSED) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10 Tf 319 255 Td (- Checkouts halts safely.) Tj ET
+BT /F1 10 Tf 319 240 Td (- Routed to Admin Alem.) Tj ET
+BT /F1 10 Tf 319 225 Td (- Admin approves in panel.) Tj ET
+0.07 0.10 0.16 rg
+558 95 235 365 re f
+0.35 0.65 0.95 RG 1 w
+558 95 235 365 re S
+0.35 0.65 0.95 rg
+BT /F2 12 Tf 574 430 Td (3. High-Volume RFQ) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 574 395 Td (Actor: Hawassa Industrial) Tj ET
+BT /F1 10 Tf 574 380 Td (Company: Enterprise Client) Tj ET
+BT /F1 10.5 Tf 574 350 Td (Order: 100x Monitors) Tj ET
+BT /F1 10 Tf 574 335 Td (List Price: 5.99M ETB) Tj ET
+BT /F1 10 Tf 574 320 Td (Action: Request B2B Quote) Tj ET
+0.35 0.65 0.95 rg
+BT /F2 11 Tf 574 275 Td (Result: PASSED) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10 Tf 574 255 Td (- Counter-offer: 5.4M ETB.) Tj ET
+BT /F1 10 Tf 574 240 Td (- Accepted on Mobile App.) Tj ET
+BT /F1 10 Tf 574 225 Td (- Locked draft order made.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 12 of 14) Tj ET
+Q
+endstream
+endobj
+32 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (LOOKING AHEAD) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 13 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Future Roadmap & Strategic Enhancements) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Scaling the Platform to Power Regional Wholesale Commerce Across East Africa) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 235 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 235 365 re S
+0.06 0.72 0.50 rg
+BT /F2 12 Tf 64 430 Td (1. FinTech Integrations) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (- Telebirr SuperApp SDK:) Tj ET
+BT /F1 10 Tf 64 380 Td (  Instant B2B settlement) Tj ET
+BT /F1 10 Tf 64 365 Td (  for Ethiopian enterprises.) Tj ET
+BT /F1 10.5 Tf 64 335 Td (- CBE Birr & CBE Direct:) Tj ET
+BT /F1 10 Tf 64 320 Td (  Commercial Bank of Ethiopia) Tj ET
+BT /F1 10 Tf 64 305 Td (  direct corporate transfers.) Tj ET
+BT /F1 10.5 Tf 64 275 Td (- Chapa Payment Gateway:) Tj ET
+BT /F1 10 Tf 64 260 Td (  Seamless multi-bank checkout.) Tj ET
+0.07 0.10 0.16 rg
+303 95 235 365 re f
+0.20 0.30 0.45 RG 1 w
+303 95 235 365 re S
+0.96 0.72 0.20 rg
+BT /F2 12 Tf 319 430 Td (2. Offline Mobile Sync) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 319 395 Td (- SQLite On-Device DB:) Tj ET
+BT /F1 10 Tf 319 380 Td (  Cache catalog and client) Tj ET
+BT /F1 10 Tf 319 365 Td (  profiles locally on phones.) Tj ET
+BT /F1 10.5 Tf 319 335 Td (- Offline Order Queuing:) Tj ET
+BT /F1 10 Tf 319 320 Td (  Allow sales agents to write) Tj ET
+BT /F1 10 Tf 319 305 Td (  orders in low-connectivity areas.) Tj ET
+BT /F1 10.5 Tf 319 275 Td (- Auto Sync Engine:) Tj ET
+BT /F1 10 Tf 319 260 Td (  Background synchronization.) Tj ET
+0.07 0.10 0.16 rg
+558 95 235 365 re f
+0.35 0.65 0.95 RG 1 w
+558 95 235 365 re S
+0.35 0.65 0.95 rg
+BT /F2 12 Tf 574 430 Td (3. ERP & Tax Systems) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 574 395 Td (- ERP Connectors:) Tj ET
+BT /F1 10 Tf 574 380 Td (  Bi-directional sync with) Tj ET
+BT /F1 10 Tf 574 365 Td (  Odoo and SAP databases.) Tj ET
+BT /F1 10.5 Tf 574 335 Td (- MOR Electronic Invoicing:) Tj ET
+BT /F1 10 Tf 574 320 Td (  Ministry of Revenues compliant) Tj ET
+BT /F1 10 Tf 574 305 Td (  electronic tax stamps.) Tj ET
+BT /F1 10.5 Tf 574 275 Td (- Automated Inventory:) Tj ET
+BT /F1 10 Tf 574 260 Td (  Real-time stock depletion.) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 13 of 14) Tj ET
+Q
+endstream
+endobj
+33 0 obj
+<< /Length 1450 >>
+stream
+q
+0.04 0.06 0.10 rg
+0 0 842 595 re f
+0.06 0.72 0.50 rg
+48 543 210 20 re f
+0.04 0.06 0.10 rg
+BT /F2 9 Tf 56 549 Td (FINAL SUMMARY) Tj ET
+0.60 0.65 0.75 rg
+BT /F2 11 Tf 712 549 Td (SLIDE 14 / 14) Tj ET
+1.0 1.0 1.0 rg
+BT /F2 22 Tf 48 511 Td (Conclusion & Key Learnings) Tj ET
+0.62 0.68 0.78 rg
+BT /F1 12 Tf 48 491 Td (Reflections on Technical Growth, Project Impact, and Final Defense) Tj ET
+0.15 0.22 0.35 rg
+48 479 746 1.5 re f
+0.07 0.10 0.16 rg
+48 95 360 365 re f
+0.06 0.72 0.50 RG 1 w
+48 95 360 365 re S
+0.06 0.72 0.50 rg
+BT /F2 13 Tf 64 430 Td (Internship Competencies Gained) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 10.5 Tf 64 395 Td (1. Headless Commerce Architecture:) Tj ET
+BT /F1 10 Tf 64 380 Td (   Mastered micro-modular headless systems using Medusa v2,) Tj ET
+BT /F1 10 Tf 64 365 Td (   Next.js 14 SSR, and React Native Expo.) Tj ET
+BT /F1 10.5 Tf 64 330 Td (2. Enterprise B2B Domain Engineering:) Tj ET
+BT /F1 10 Tf 64 315 Td (   Architected corporate hierarchies, spending limits,) Tj ET
+BT /F1 10 Tf 64 300 Td (   and automated approval workflows.) Tj ET
+BT /F1 10.5 Tf 64 265 Td (3. Software Localization at Scale:) Tj ET
+BT /F1 10 Tf 64 250 Td (   Customized open-source architectures to enforce strict ETB) Tj ET
+BT /F1 10 Tf 64 235 Td (   monetary policies and Ethiopian geography.) Tj ET
+BT /F1 10.5 Tf 64 200 Td (4. DevOps & Cloud Delivery:) Tj ET
+BT /F1 10 Tf 64 185 Td (   Deployed multi-tier backend and frontend services on Render.) Tj ET
+0.07 0.10 0.16 rg
+432 95 362 365 re f
+0.06 0.72 0.50 RG 1 w
+432 95 362 365 re S
+0.06 0.72 0.50 rg
+BT /F2 20 Tf 480 340 Td (Thank You!) Tj ET
+0.96 0.72 0.20 rg
+BT /F2 14 Tf 480 305 Td (Questions & Discussion) Tj ET
+0.85 0.88 0.94 rg
+BT /F1 11 Tf 480 260 Td (Ready to demonstrate:) Tj ET
+BT /F1 10.5 Tf 480 235 Td (- Live Medusa Admin Dashboard) Tj ET
+BT /F1 10.5 Tf 480 215 Td (- Company & Employee Limit Management) Tj ET
+BT /F1 10.5 Tf 480 195 Td (- Order Approval Pipeline in action) Tj ET
+BT /F1 10.5 Tf 480 175 Td (- Request For Quote (RFQ) negotiation flow) Tj ET
+BT /F1 10.5 Tf 480 155 Td (- Addis B2B Mobile App live on Expo Go) Tj ET
+0.45 0.50 0.60 rg
+BT /F1 9 Tf 48 24 Td (Ethiopia B2B E-Commerce Platform - Internship Capstone Defense) Tj ET
+BT /F2 9 Tf 712 24 Td (Slide 14 of 14) Tj ET
+Q
+endstream
+endobj
+xref
+0 34
+0000000000 65535 f 
+0000000015 00000 n 
+0000000068 00000 n 
+0000000216 00000 n 
+0000000293 00000 n 
+0000000375 00000 n 
+0000000460 00000 n 
+0000000600 00000 n 
+0000000740 00000 n 
+0000000880 00000 n 
+0000001020 00000 n 
+0000001160 00000 n 
+0000001300 00000 n 
+0000001440 00000 n 
+0000001580 00000 n 
+0000001720 00000 n 
+0000001860 00000 n 
+0000002000 00000 n 
+0000002140 00000 n 
+0000002280 00000 n 
+0000002420 00000 n 
+0000003844 00000 n 
+0000005368 00000 n 
+0000006892 00000 n 
+0000008416 00000 n 
+0000009940 00000 n 
+00000011464 00000 n 
+00000012988 00000 n 
+00000014512 00000 n 
+00000016036 00000 n 
+00000017560 00000 n 
+00000019084 00000 n 
+00000020608 00000 n 
+00000022132 00000 n 
+trailer
+<< /Size 34 /Root 1 0 R >>
+startxref
+23656
+%%EOF

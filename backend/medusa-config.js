@@ -1,6 +1,10 @@
 const { loadEnv, defineConfig, Modules } = require("@medusajs/framework/utils");
 
-loadEnv(process.env.NODE_ENV || "development", process.cwd());
+// In production (Render), env vars are injected directly — skip loadEnv
+// to prevent a bundled .env file from overwriting them
+if (process.env.NODE_ENV !== "production") {
+  loadEnv(process.env.NODE_ENV || "development", process.cwd());
+}
 
 module.exports = defineConfig({
   projectConfig: {

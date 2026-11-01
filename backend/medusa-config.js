@@ -5,6 +5,9 @@ loadEnv(process.env.NODE_ENV || "development", process.cwd());
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
+    databaseDriverOptions: process.env.NODE_ENV === "production"
+      ? { ssl: { rejectUnauthorized: false } }
+      : {},
     http: {
       storeCors: process.env.STORE_CORS || "https://addis-b2b.vercel.app,http://localhost:8000,http://localhost:3000",
       adminCors: process.env.ADMIN_CORS || "https://addis-b2b.onrender.com,http://localhost:7001,http://localhost:9000",

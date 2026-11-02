@@ -6,10 +6,13 @@ if (process.env.NODE_ENV !== "production") {
   loadEnv(process.env.NODE_ENV || "development", process.cwd());
 }
 
+const isSsl = process.env.NODE_ENV === "production" || 
+  (process.env.DATABASE_URL && process.env.DATABASE_URL.includes("supabase"));
+
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    databaseDriverOptions: process.env.NODE_ENV === "production"
+    databaseDriverOptions: isSsl
       ? { ssl: { rejectUnauthorized: false } }
       : {},
     http: {

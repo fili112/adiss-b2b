@@ -11,7 +11,7 @@ export const listRegions = async (): Promise<HttpTypes.StoreRegion[]> => {
   }
 
   return sdk.client
-    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
+    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions?fields=*countries`, {
       method: "GET",
       next,
       cache: "force-cache",

@@ -4,6 +4,7 @@ import { isStripeLike, paymentInfoMap } from "@/lib/constants"
 import { initiatePaymentSession } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import PaymentContainer from "@/modules/checkout/components/payment-container"
+import PaymentVerification from "@/modules/checkout/components/payment-verification"
 import { StripeContext } from "@/modules/checkout/components/payment-wrapper"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
@@ -34,6 +35,29 @@ const Payment = ({
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
     activeSession?.provider_id || "pp_telebirr"
   )
+
+  const isEthiopianTransfer =
+    selectedPaymentMethod === "pp_telebirr" ||
+    selectedPaymentMethod === "pp_cbe" ||
+    selectedPaymentMethod === "telebirr" ||
+    selectedPaymentMethod === "cbe"
+
+  const [localVerificationStatus, setLocalVerificationStatus] = useState(
+    Boolean(
+      cart?.metadata?.payment_verified &&
+        cart?.metadata?.payment_transaction_id &&
+        cart?.metadata?.payment_provider === selectedPaymentMethod
+    )
+  )
+
+  useEffect(() => {
+    const isVerifiedForMethod = Boolean(
+      cart?.metadata?.payment_verified &&
+        cart?.metadata?.payment_transaction_id &&
+        cart?.metadata?.payment_provider === selectedPaymentMethod
+    )
+    setLocalVerificationStatus(isVerifiedForMethod)
+  }, [selectedPaymentMethod, cart?.metadata])
 
   const displayPaymentMethods = useMemo(() => {
     const defaultB2BMethods = [
@@ -192,6 +216,19 @@ const Payment = ({
                   )
                 })}
               </RadioGroup>
+              {isEthiopianTransfer && (
+                <PaymentVerification
+                  cart={cart}
+                  selectedMethod={selectedPaymentMethod}
+                  onVerificationChange={(v) => {
+                    setLocalVerificationStatus(v)
+                    if (v) {
+                      setError(null)
+                    }
+                  }}
+                />
+              )}
+
               {stripeReady && selectedPaymentMethod === "pp_stripe_stripe" && (
                 <div className="mt-5 transition-all duration-150 ease-in-out">
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
@@ -239,12 +276,15 @@ const Payment = ({
               disabled={
                 (selectedPaymentMethod === "pp_stripe_stripe" &&
                   !cardComplete) ||
-                (!selectedPaymentMethod && !paidByGiftcard)
+                (!selectedPaymentMethod && !paidByGiftcard) ||
+                (isEthiopianTransfer && !localVerificationStatus)
               }
               data-testid="submit-payment-button"
             >
               {!activeSession && isStripeLike(selectedPaymentMethod)
                 ? " Enter card details"
+                : isEthiopianTransfer && !localVerificationStatus
+                ? "Verify payment with Verify.et to continue"
                 : "Next step"}
             </Button>
           </div>
@@ -252,33 +292,59 @@ const Payment = ({
 
         <div className={isOpen ? "hidden" : "block"}>
           {cart && paymentReady && activeSession ? (
-            <div className="flex items-center gap-x-1 w-full pt-2">
-              <div className="flex flex-col w-1/3">
-                <Text
-                  className="txt-medium text-ui-fg-subtle"
-                  data-testid="payment-method-summary"
-                >
-                  {paymentInfoMap[selectedPaymentMethod]?.title ||
-                    selectedPaymentMethod}
-                </Text>
-              </div>
-              <div className="flex flex-col w-1/3">
-                <div
-                  className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
-                  data-testid="payment-details-summary"
-                >
-                  <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
-                    {paymentInfoMap[selectedPaymentMethod]?.icon || (
-                      <CreditCard />
-                    )}
-                  </Container>
-                  <Text>
-                    {isStripeLike(selectedPaymentMethod) && cardBrand
-                      ? cardBrand
-                      : paymentInfoMap[selectedPaymentMethod]?.title}
+            <div className="flex flex-col gap-y-2 w-full pt-2">
+              <div className="flex items-center gap-x-1 w-full">
+                <div className="flex flex-col w-1/3">
+                  <Text
+                    className="txt-medium text-ui-fg-subtle"
+                    data-testid="payment-method-summary"
+                  >
+                    {paymentInfoMap[selectedPaymentMethod]?.title ||
+                      selectedPaymentMethod}
                   </Text>
                 </div>
+                <div className="flex flex-col w-1/3">
+                  <div
+                    className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
+                    data-testid="payment-details-summary"
+                  >
+                    <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
+                      {paymentInfoMap[selectedPaymentMethod]?.icon || (
+                        <CreditCard />
+                      )}
+                    </Container>
+                    <Text>
+                      {isStripeLike(selectedPaymentMethod) && cardBrand
+                        ? cardBrand
+                        : paymentInfoMap[selectedPaymentMethod]?.title}
+                    </Text>
+                  </div>
+                </div>
               </div>
+
+              {cart?.metadata?.payment_verified && (
+                <div className="flex items-center gap-x-2 text-xs text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 px-3 py-1.5 rounded-lg w-fit mt-1">
+                  <CheckCircleSolid className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>
+                    Verified via <strong>verify.et</strong> • Ref:{" "}
+                    <strong className="font-mono">
+                      {cart.metadata.payment_transaction_id}
+                    </strong>
+                    {cart.metadata.payment_verified_amount && (
+                      <>
+                        {" "}
+                        (Br{" "}
+                        {Number(
+                          cart.metadata.payment_verified_amount
+                        ).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                        })}{" "}
+                        ETB)
+                      </>
+                    )}
+                  </span>
+                </div>
+              )}
             </div>
           ) : paidByGiftcard ? (
             <div className="flex flex-col w-1/3">

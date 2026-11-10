@@ -235,7 +235,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
               />
             </Select.Trigger>
             <Select.Content>
-              {countryNames?.map((country) => (
+              {(countryNames.length ? countryNames : ["Ethiopia"]).map((country) => (
                 <Select.Item key={country} value={country}>
                   {country}
                 </Select.Item>
@@ -259,7 +259,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
               />
             </Select.Trigger>
             <Select.Content>
-              {[...new Set(currencies)].map((currency) => (
+              {[...new Set(currencies.length ? currencies : ["etb"])].map((currency) => (
                 <Select.Item key={currency} value={currency}>
                   {currency.toUpperCase()} ({currencySymbolMap[currency]})
                 </Select.Item>

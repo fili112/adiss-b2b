@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Addis B2B — Project Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #0F172A;
+    color: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .poster {
+    background: linear-gradient(135deg, #0F172A 0%, #0D2137 50%, #0F172A 100%);
+    padding: 40px 48px 36px;
+    min-height: 820px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background glow */
+  .poster::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .poster::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; right: -150px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(20,184,166,0.3);
+    padding-bottom: 24px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(20,184,166,0.15);
+    border: 1px solid rgba(20,184,166,0.4);
+    color: #14B8A6;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #fff 0%, #14B8A6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .header p.sub {
+    font-size: 14px;
+    color: #94A3B8;
+    margin-bottom: 6px;
+  }
+  .header p.uni {
+    font-size: 12px;
+    color: #64748B;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* MAIN GRID */
+  .grid-main {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* CARDS */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .card.accent {
+    border-color: rgba(20,184,166,0.25);
+    background: rgba(20,184,166,0.05);
+  }
+
+  .card-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #14B8A6;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .card-title span.dot {
+    width: 6px; height: 6px;
+    background: #14B8A6;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #CBD5E1;
+  }
+  .summary-highlight {
+    color: #14B8A6;
+    font-weight: 600;
+  }
+
+  /* Tech Stack */
+  .tech-group { margin-bottom: 14px; }
+  .tech-group:last-child { margin-bottom: 0; }
+  .tech-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #E2E8F0;
+  }
+  .tag.teal { background: rgba(20,184,166,0.15); border-color: rgba(20,184,166,0.3); color: #5EEAD4; }
+  .tag.purple { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.3); color: #A5B4FC; }
+  .tag.amber { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.25); color: #FCD34D; }
+  .tag.slate { background: rgba(148,163,184,0.10); border-color: rgba(148,163,184,0.2); color: #CBD5E1; }
+
+  /* Features */
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+    color: #CBD5E1;
+    line-height: 1.5;
+  }
+  .feature-item:last-child { margin-bottom: 0; }
+  .feat-icon {
+    width: 20px; height: 20px;
+    background: rgba(20,184,166,0.2);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* BOTTOM ROW */
+  .grid-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+
+  /* Architecture Flow */
+  .arch-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 6px;
+    flex-wrap: nowrap;
+  }
+  .arch-node {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+    flex: 1;
+  }
+  .arch-node.primary {
+    border-color: rgba(20,184,166,0.4);
+    background: rgba(20,184,166,0.08);
+  }
+  .arch-node-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+  .arch-node-sub {
+    font-size: 9.5px;
+    color: #94A3B8;
+    line-height: 1.4;
+  }
+  .arch-arrow {
+    color: #14B8A6;
+    font-size: 16px;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+  .arch-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .arch-node-sm {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 9.5px;
+    color: #94A3B8;
+    text-align: center;
+  }
+
+  /* Teams */
+  .team-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .team-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .team-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .team-name { font-size: 12px; font-weight: 700; color: #E2E8F0; margin-bottom: 2px; }
+  .team-desc { font-size: 10.5px; color: #64748B; line-height: 1.4; }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-left { font-size: 11px; color: #475569; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-link {
+    font-size: 11px;
+    color: #14B8A6;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  @media print {
+    body { width: 100%; }
+    .poster { padding: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Software Engineering Internship — Capstone Project</div>
+    <h1>Addis B2B — E-Commerce &amp; Wholesale Platform</h1>
+    <p class="sub">Ethiopia's Centralized Digital Wholesale Distribution Ecosystem — 100% Ethiopian Birr (ETB)</p>
+    <p class="uni">Adigrat University &nbsp;|&nbsp; College of Engineering &amp; Technology &nbsp;|&nbsp; Department of Software Engineering &nbsp;|&nbsp; 2025/2026</p>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid-main">
+
+    <!-- COLUMN 1: Summary -->
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>Project Summary</div>
+      <p class="summary-text">
+        A production-grade, localized <span class="summary-highlight">enterprise B2B e-commerce platform</span> built for Ethiopian wholesale distributors.
+        <br/><br/>
+        Replaces informal trade — WhatsApp negotiations, paper invoices, and cash receipts — with a secure, governed digital procurement ecosystem.
+        <br/><br/>
+        Enforces <span class="summary-highlight">corporate financial controls</span>, supports <span class="summary-highlight">bulk price negotiation (RFQ)</span>, and delivers omnichannel access via Web and Mobile.
+        <br/><br/>
+        All transactions are processed exclusively in <span class="summary-highlight">Ethiopian Birr (ETB / "Br")</span> — eliminating foreign currency friction.
+      </p>
+    </div>
+
+    <!-- COLUMN 2: Tech Stack -->
+    <div class="card accent">
+      <div class="card-title"><span class="dot"></span>Technology Stack</div>
+
+      <div class="tech-group">
+        <div class="tech-label">Frontend Web</div>
+        <div class="tech-tags">
+          <span class="tag teal">Next.js 14</span>
+          <span class="tag teal">React 18</span>
+          <span class="tag teal">TypeScript</span>
+          <span class="tag teal">Tailwind CSS</span>
+          <span class="tag teal">@medusajs/ui</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-label">Backend Engine</div>
+        <div class="tech-tags">
+          <span class="tag purple">Medusa v2</span>
+          <span class="tag purple">Node.js</span>
+          <span class="tag purple">TypeScript</span>
+          <span class="tag purple">MikroORM</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-label">Database &amp; Cache</div>
+        <div class="tech-tags">
+          <span class="tag amber">PostgreSQL 16</span>
+          <span class="tag amber">Redis</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-label">Mobile</div>
+        <div class="tech-tags">
+          <span class="tag teal">React Native</span>
+          <span class="tag teal">Expo</span>
+          <span class="tag teal">TypeScript</span>
+          <span class="tag teal">Axios</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-label">DevOps &amp; Tools</div>
+        <div class="tech-tags">
+          <span class="tag slate">Render</span>
+          <span class="tag slate">Vercel</span>
+          <span class="tag slate">Git / GitHub</span>
+          <span class="tag slate">Postman</span>
+          <span class="tag slate">Figma</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMN 3: Key Features -->
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>Key Features</div>
+
+      <div class="feature-item">
+        <div class="feat-icon">🏢</div>
+        <span>Multi-tenant Company Hierarchies &amp; Employee Roles (Admin / Officer)</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">💰</div>
+        <span>Automated Spending Limits with 2-Tier Approval Workflows</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📋</div>
+        <span>B2B Request For Quote (RFQ) Negotiation &amp; Counter-Offers</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">🇪🇹</div>
+        <span>ETB-Only Tiered Pricing: Bronze → Silver → Gold → Platinum</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📱</div>
+        <span>Cross-Platform Mobile App with Bulk Quantity Steppers</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">☁️</div>
+        <span>Live Cloud Deployment: Render (Backend) &amp; Vercel (Frontend)</span>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">🔐</div>
+        <span>RBAC Security: JWT Auth, Publishable API Keys, CORS Guards</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM GRID -->
+  <div class="grid-bottom">
+
+    <!-- Architecture -->
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>System Architecture — Headless 4-Tier Decoupled Design</div>
+      <div class="arch-flow">
+
+        <div class="arch-stack">
+          <div class="arch-node-sm">🌐 Next.js 14 Web</div>
+          <div class="arch-node-sm">📱 React Native Mobile</div>
+          <div class="arch-node-sm">⚙️ Medusa Admin</div>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-node primary">
+          <div class="arch-node-title">API Gateway</div>
+          <div class="arch-node-sub">Medusa v2 REST<br/>JWT • CORS • Auth Keys</div>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-node">
+          <div class="arch-node-title">Business Logic</div>
+          <div class="arch-node-sub">Company Module<br/>Approval Engine<br/>Quote / RFQ Module<br/>ETB Pricing Rules</div>
+        </div>
+
+        <div class="arch-arrow">→</div>
+
+        <div class="arch-stack">
+          <div class="arch-node-sm">🗄️ PostgreSQL 16</div>
+          <div class="arch-node-sm">⚡ Redis Cache</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Teams -->
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>Development Teams</div>
+
+      <div class="team-item">
+        <div class="team-icon" style="background:rgba(20,184,166,0.2);">🖥️</div>
+        <div>
+          <div class="team-name">Frontend Team</div>
+          <div class="team-desc">Web storefront, company dashboards, approval UI, RFQ portal, ETB localization</div>
+        </div>
+      </div>
+
+      <div class="team-item">
+        <div class="team-icon" style="background:rgba(99,102,241,0.2);">⚙️</div>
+        <div>
+          <div class="team-name">Backend Team</div>
+          <div class="team-desc">Medusa v2 B2B modules, REST APIs, PostgreSQL schemas, deployment on Render</div>
+        </div>
+      </div>
+
+      <div class="team-item">
+        <div class="team-icon" style="background:rgba(245,158,11,0.2);">📱</div>
+        <div>
+          <div class="team-name">Mobile Team</div>
+          <div class="team-desc">React Native/Expo app, bulk ordering, mobile RFQ, approvals on-the-go</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Adigrat University — Software Engineering Internship Capstone &nbsp;|&nbsp; 2025/2026</div>
+    <div class="footer-links">
+      <div class="footer-link">🌐 https://addis-b2b.vercel.app</div>
+      <div class="footer-link">⚙️ https://addis-b2b.onrender.com/app</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

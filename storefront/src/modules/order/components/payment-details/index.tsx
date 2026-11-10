@@ -50,6 +50,21 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                       ).toLocaleString()}`}
                 </Text>
               </div>
+
+              {Boolean(
+                (order as any)?.metadata?.payment_verified ||
+                  (order as any)?.metadata?.payment_transaction_id
+              ) && (
+                <div className="mt-3 flex items-center gap-x-2 text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg w-fit">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                  <span>
+                    Official Bank Receipt Verified via <strong>verify.et</strong> • Ref:{" "}
+                    <strong className="font-mono">
+                      {(order as any).metadata.payment_transaction_id}
+                    </strong>
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -308,3 +308,61 @@ export const updateCustomerAddress = async (
       return { success: false, error: err.toString() }
     })
 }
+
+
+export const updatePassword = async (
+  _currentState: unknown,
+  formData: FormData
+): Promise<{ success: boolean; error: string | null }> => {
+  const oldPassword = formData.get("old_password") as string
+  const newPassword = formData.get("new_password") as string
+  const confirmPassword = formData.get("confirm_password") as string
+
+  if (!oldPassword || !newPassword || !confirmPassword) {
+    return { success: false, error: "All password fields are required." }
+  }
+
+  if (newPassword !== confirmPassword) {
+    return { success: false, error: "New passwords do not match." }
+  }
+
+  if (newPassword.length < 8) {
+    return { success: false, error: "Password must be at least 8 characters long." }
+  }
+
+  try {
+    const customer = await retrieveCustomer()
+    if (!customer?.email) {
+      return { success: false, error: "Customer not logged in." }
+    }
+
+    const headers = {
+      ...(await getAuthHeaders()),
+    }
+
+    const response = await sdk.client.fetch<{ success: boolean; message?: string }>(
+      `/store/customers/password`,
+      {
+        method: "POST",
+        headers,
+        body: {
+          old_password: oldPassword,
+          new_password: newPassword,
+        },
+      }
+    )
+
+    if (response?.success) {
+      const newLoginToken = await sdk.auth.login("customer", "emailpass", {
+        email: customer.email,
+        password: newPassword,
+      })
+      setAuthToken(newLoginToken as string)
+      return { success: true, error: null }
+    }
+
+    return { success: false, error: response?.message || "Failed to update password." }
+  } catch (err: any) {
+    return { success: false, error: err?.message || "Failed to update password." }
+  }
+}

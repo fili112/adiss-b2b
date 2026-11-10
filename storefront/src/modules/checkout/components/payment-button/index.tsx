@@ -366,8 +366,20 @@ const ManualTestPaymentButton = ({
     onPaymentCompleted()
   }
 
+  const metadata = (cart as any)?.metadata || {}
+  const isVerified = Boolean(metadata?.payment_verified && metadata?.payment_transaction_id)
+
   return (
     <>
+      {isVerified && (
+        <div className="mb-3 flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 p-2.5 rounded-lg">
+          <div className="flex items-center gap-x-1.5 font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+            <span>Receipt Verified by verify.et</span>
+          </div>
+          <span className="font-mono font-bold">{metadata.payment_transaction_id}</span>
+        </div>
+      )}
       <Button
         className="w-full"
         disabled={notReady}
